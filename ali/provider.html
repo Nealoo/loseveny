@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>供应商-天机-阿里通信</title>
+	    <meta charset="utf-8"/>
+	    <meta name="renderer" content="webkit"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	    <link rel="shortcut icon" href="http://img.alicdn.com/tps/i3/T1EA_RFQdXXXX51Yfd-32-32.ico" type="image/x-icon"/>
+	    <link rel="stylesheet" href="css/global.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/provider.css"/>
+	    
+	    <!--TODO 没有内网，暂时使用alicdn上的kissy写脚本-->
+	    <script src="http://g.alicdn.com/kissy/k/1.4.7/seed-min.js" data-config="{combine:true}"></script>
+	</head>
+	<body>
+		<!-- 第一部分：大图区域 -->
+		<div class="tj-section tsection1">
+			<div class="bottom">
+				<div class="bottom-content">
+					<div class="tab">
+						<ul>
+							<li class="c1">供应商入驻流程<div class="arrow-down"></div></li>
+							<li class="c2">发布合约流程<div class="arrow-down"></div></li>
+						</ul>
+					</div>
+					<ul class="step">
+						<li class="one"></li>
+						<li class="two"></li>
+						<li class="three"></li>
+					</ul>
+					<ul class="tab-content c1">
+						<li>
+							<span>成为天猫店铺</span>
+							<ol>
+								<li>1.建立天猫店铺</li>
+								<li>2.申请企业支付宝认证</li>
+							</ol>
+						</li>
+						<li>
+							<span>在线申请</span>
+							<ol>
+								<li>1.提交入驻资料并签署协议</li>
+								<li>2.天猫网厅小二在5个工作日内完成审核</li>
+							</ol>
+						</li>
+						<li>
+							<span>激活账号</span>
+							<ol>
+								<li>1.自动支付宝代扣保证金</li>
+								<li>2.完成初始化，激活账号</li>
+							</ol>
+						</li>
+					</ul>
+					<ul class="tab-content c2">
+						<li><span>进入我的合约</span></li>
+						<li><span>新建合约计划</span></li>
+						<li><span>修改合约信息</span></li>
+					</ul>
+					<a class="bottom-btn">供应商加盟<img src="img/arrow-right.png"></a>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 第二部分：说明文字区域 -->
+		<div class="tj-section tsection2">
+			<span class="title">招商规则及说明</span>
+			<ul class="qa">
+				<li>
+					<span class="q">1、招商范围是什么？</span>
+					<span class="a">答：供应商目前只招运营商旗舰店及专卖店，暂不支持专营店入驻。</span>
+				</li>
+				<li>
+					<span class="q">2、入驻过程中，对店铺账号及支付宝账号有什么要求？</span>
+					<span class="a">答：加盟商需用店铺主账号进行申请。</span>
+				</li>
+				<li>
+					<span class="q">3、从申请加盟到审批完成需要多长时间？</span>
+					<span class="a">答：10个工作日。</span>
+				</li>
+				<li>
+					<span class="q">4、有没有收费项目？</span>
+					<span class="a">答：供应商入驻需要冻结支付宝2万元，无其他收费项目，合作解除时，第二个月保证金自动释放。</span>
+				</li>
+				<li>
+					<span class="q">5、审核成功后，如何发布宝贝？</span>
+					<span class="a">答：合约产品发布在天猫网厅分销平台发布，宽带和上网卡产品发布需要在天猫分销平台上发布（gonxiao.tmall.com）</span>
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+		
+			//TODO 没有内网，暂时使用alicdn上的kissy写脚本
+			
+			KISSY.use('node',function(S,node){
+				node.one('.bottom-content .tab .c1').on('click',function(){
+					node.one(this).one('.arrow-down').show().parent().next().one('.arrow-down').hide();
+					node.one('.tsection1 .tab-content.c2').hide().prev().show();
+				});
+				node.one('.bottom-content .tab .c2').on('click',function(){
+					node.one(this).one('.arrow-down').show().parent().prev().one('.arrow-down').hide();
+					node.one('.tsection1 .tab-content.c2').show().prev().hide();
+				});
+			});
+			
+			// 这些代码将第一部分强制显示在第一屏，如不需要请删除以下两句
+			setTimeout(function(){
+				KISSY.use('node',function(S,node){
+					node.one('.tsection1').css('height',getHeight()+'px');
+				});
+			},100);
+			window.onresize = function(){
+				KISSY.use('node',function(S,node){
+					node.one('.tsection1').css('height',getHeight()+'px');
+				});
+			}
+			
+			/**
+			 * 获取当前浏览器的可视区域高度
+			 */
+			function getHeight(){
+				if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion .split(";")[1].replace(/[ ]/g,"")=="MSIE8.0"){
+					return (1280/1920)*document.documentElement.clientWidth;
+				}
+				var h = document.documentElement.clientHeight;
+				var p = 1280;
+				return h>p?p:h;
+			}
+		</script>
+	</body>
+</html>

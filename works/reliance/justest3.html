@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html style="overflow: hidden;">
+	<head>
+		<meta charset="utf-8">
+		<title>框架内嵌内容</title>
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/ext-all.css">
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-berry.css">
+	</head>
+	<body style="overflow: hidden;background: #006A80;width: 300px;">
+		<div style="overflow: hidden;width: 200px;">
+			<div style="width:400px;height: 30px;background: #000000;top: 0;left: 0;z-index: 100;" id="ab001"></div>
+			<div style="width:400px;height: 30px;background: #000000;position: absolute;top: 30px;left: 0;"></div>
+		</div>
+		<div id="target"></div>
+		<div id="tablee" style="margin-top: 10px;"></div>
+		
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.js"></script>
+		
+		<script type="text/javascript">
+		
+		$('#ab001').on('mousedown',function(){
+			$(document).mousemove(function(e){
+				$('#ab001').css('left',e.clientX);
+				$('#ab001').css('top',e.clientY);
+			});
+			
+		});
+//			Ext.onReady(function(){
+////				var p = new Ext.Panel({
+////			    title: 'Fit Layout',
+////			    layout:'fit',
+////			    renderTo:'target',
+////			    items: {
+////			        title: '内层面板',
+////			        html: '<p>这是内层面板的内容</p>',
+////			        border: false
+////			    }
+////			});
+////var border = new Ext.Panel({
+////  title: 'Border Layout',
+////  layout:'border',
+////  renderTo:'target',
+////  height:'100%',
+////  items: [{
+////      title: 'South Panel',
+////      region: 'south',
+////      height: 100,
+////      margins: '0 5 5 5'
+////  },{
+////      title: 'West Panel',
+////      region:'north',
+////      height: 100,
+////      margins: '5 0 0 5',
+////      cmargins: '5 5 0 5',
+////  },{
+////      title: 'Main Content',
+////      height: 100,
+////      region:'center',
+////      margins: '5 5 0 0'
+////  }]
+////});
+//	
+//			});
+		</script>
+	</body>
+</html>

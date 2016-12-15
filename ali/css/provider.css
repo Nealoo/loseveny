@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+/* 全局样式 */
+.tj-section{
+	width: 100%;
+	min-width: 1180px;
+	height: auto;
+}
+.arrow-down{  
+    width: 0;   
+    height: 0;   
+    border-left: 10px solid transparent;  
+    border-right: 10px solid transparent;  
+    border-top: 10px solid #000;  
+    font-size: 0;  
+    line-height: 0;  
+}
+
+
+/* 大图区域 */
+.tsection1{
+	overflow: hidden;
+	position: relative;
+	background: url(../img/pro-s1.jpg) center no-repeat;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=Enabled, sizingMethod=scale , src=img/pro-s1.jpg)\0;
+}
+.tsection1 .top-img{
+	width: 100%;
+}
+.tsection1 .bottom{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 283px;
+	background: url(../img/pro-s1b.png) center repeat-x;
+	/*background: rgba(0,0,0,.4);
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000)\0;*/
+}
+.tsection1 .tab{
+	position: relative;
+	top:-85px;
+}
+.tsection1 .tab li{
+	display: inline-block;
+	height: 31px;
+	color: #000;
+	font-size: 30px;
+}
+.tsection1 .tab li{
+	padding-left: 40px;
+  	cursor: pointer;
+}
+.tsection1 .tab li .arrow-down{
+	position: relative;
+  	top: 20px;
+  	left: 85px;
+  	display: none;
+}
+.tsection1 .tab li:first-child{
+	border-right: 2px solid #000;
+	padding-right: 40px;
+	padding-left: 0;
+}
+.tsection1 .tab li:first-child .arrow-down{
+	position: relative;
+  	left: 95px;
+  	display: block;
+}
+.tsection1 .bottom-content{
+	position: relative;
+	width:1180px;
+	height: 264px;
+	margin: 10px auto;
+	color: #fff;
+}
+.tsection1 .bottom-content .step{
+	width: 900px;
+	font-size: 100px;
+}
+.tsection1 .bottom-content .step li{
+	display: inline-block;
+	width: 250px;
+	height: 93px;
+	line-height: 105px;
+}
+.tsection1 .bottom-content .step li.one{
+	background: url(../img/num-big-01.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step li.two{
+	background: url(../img/num-big-02.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step li.three{
+	background: url(../img/num-big-03.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .tab-content li{
+	display: inline-block;
+	width: 280px;
+}
+.tsection1 .bottom-content .tab-content li span{
+	line-height: 75px;
+	font-size: 28px;
+}
+.tsection1 .bottom-content .tab-content ol li{
+	display: inline-block;
+	width: 280px;
+	font-size: 14px;
+}
+.tsection1 .bottom-content .tab-content.c2{
+	display: none;
+}
+.tsection1 .bottom-content .bottom-btn{
+ 	position: absolute;
+	width: 280px;
+  	height: 90px;
+  	background-color: #ff9133;
+  	top: 60px;
+  	right: 0;
+  	line-height: 90px;
+  	text-align: center;
+  	color: #fff;
+  	font-size: 30px;
+  	cursor: pointer;
+}
+.tsection1 .bottom-content .bottom-btn img{
+	margin-left: 15px;
+}
+
+
+/* 说明文字区域 */
+.tsection2{
+	height: 635px;
+	width: 1180px;
+	margin: 0 auto;
+	padding: 80px 0 40px 0;
+}
+.tsection2 .title{
+	display: inline-block;
+	font-size: 30px;
+	margin-bottom: 38px;
+}
+.tsection2 .qa li{
+	margin-bottom: 40px;
+}
+.tsection2 .qa li .q{
+	color: #666;
+	display: block;
+	font-size: 18px;
+}
+.tsection2 .qa li .a{
+	font-size: 14px;
+	line-height: 30px;
+}

@@ -1,0 +1,96 @@
+body {
+	background: #313131;
+}
+
+#logincontainer {
+	width: 240px;
+	margin: 0 auto;
+}
+
+#loginbox {
+	padding-top: 50px;
+	width: 240px;
+}
+
+#loginheader {
+	text-align: center;
+	padding: 15px 0 0 12px;
+	width: 238px;
+}
+
+#loginheader h2 {
+	clear: both;
+	color: #999;
+	height: 30px;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 30px;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#innerlogin {
+	width: 240px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 15px 0 30px 0;
+	text-align: center
+}
+
+.logininputt {
+	width: 240px;
+	padding: 12px 10px;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-size: 15px;
+	margin: 10px 0;
+	background: #ffffff url(../img/bg_login_input.png) repeat-x;
+	float: left
+}
+
+.logininputs {
+	width: 70px;
+	padding: 12px 10px;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-size: 15px;
+	margin: 10px 0;
+	background: #ffffff url(../img/bg_login_input.png) repeat-x;
+	float: left
+}
+
+#innerlogin p {
+	color: #ddd;
+	font-weight: normal;
+	font-size: 14px;
+	text-align: left;
+	width: 240px;
+	float: left;
+}
+#refreshCaptchaZone{
+	width:140px;
+	height:43px;
+	float:left;
+	margin: 10px 8px 0 0;
+}
+#innerlogin .vimg {
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	float: left
+}
+
+#innerlogin a {
+	line-height: 30px;
+	color: #777;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#innerlogin a:hover {
+	line-height: 30px;
+	color: #999;
+	text-decoration: underline;
+}

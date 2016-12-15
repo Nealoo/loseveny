@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>框架内嵌内容</title>
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/ext-all.css">
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-berry.css">
+	</head>
+	<body>
+		<div id="target"></div>
+		<div id="tablee" style="margin-top: 10px;"></div>
+		
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		
+		<script type="text/javascript">
+			Ext.onReady(function(){
+				new Ext.Panel({
+					title:"这里是标题",
+					id:"testp",
+					width:900,
+					renderTo:"target"
+				});
+				new Ext.FormPanel({
+					renderTo:"testp",
+					layout:"column",
+					width:"100%",
+					items: [{
+						columnWidth: 0.3,
+						layout: "form",
+						items: {
+							xtype:"textfield",
+							fieldLabel:"输入号码",
+							anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.3,
+							layout:"form",
+							items:{
+								xtype:"combo",
+								fieldLabel:"选择号码",
+								anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.2,
+							layout:"form",
+							items:{
+								xtype:"textfield",
+								fieldLabel:"输入号码",
+								anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.1,
+							
+							items:{
+								xtype:"button",
+								text:"搜索"
+							}
+						}, {
+							columnWidth: 0.1,
+							
+							items:{
+								xtype:"button",
+								text:"删除"
+							}
+						}
+					]
+				});
+				
+				
+				
+				new Ext.TabPanel({
+                    renderTo:'tablee',
+                    width:900,
+                    height:300,
+                    title:'这是标题',
+                    items:[
+                        {title:'标签1',html:'<div id="pppp"><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input><input type="checkbox">aa</input></div>'},
+                        {title:'标签2',html:'标签2'}
+                    ]
+                });
+                
+                
+//              new Ext.FormPanel({
+//					renderTo:"pppp",
+//					layout:"column",
+//					items: [{
+//						xtype:"checkbox",
+//						fieldLabel:"牛",
+//						anchor:"90%"
+//					},
+//					{
+//						xtype:"checkbox",
+//						fieldLabel:"牛",
+//						anchor:"90%"
+//					},{
+//						xtype:"checkbox",
+//						fieldLabel:"牛",
+//						anchor:"90%"
+//					},{
+//						xtype:"checkbox",
+//						fieldLabel:"牛",
+//						anchor:"90%"
+//					}
+//					]
+//				});
+			});
+		</script>
+	</body>
+</html>

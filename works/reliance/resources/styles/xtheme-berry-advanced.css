@@ -1,0 +1,94 @@
+@charset "utf-8";
+/**
+ * @author lining7@asiainfo.com
+ * @editDate 2014-12-10
+ * @direction: 针对extjs的扁平化修改
+ * */
+
+/* Panel */
+.x-panel{
+	/*box-shadow: 3px 3px #bbb;*/
+}
+.x-panel-header {
+	height: 40px;
+	background: transparent;
+	font-size: 18px;
+	color: #806E5D;
+	line-height: 55px;
+	vertical-align: bottom;
+}
+.x-panel.shadow .x-panel-bwrap{
+	box-shadow: 3px 3px #bbb;
+}
+/* Panel ------------------------------------------ */
+
+/* form */
+/* 开关按钮背景  */
+.x-form-field-wrap .x-form-trigger{
+	background: none;/* 覆盖ext-all */
+    background-image:url(../images/berry/common/icon-select.gif);
+    border-bottom: none;/* 覆盖ext-all */
+    margin-top: 8px;
+}
+/* 覆盖一些高度信息 下拉按钮 */
+.x-small-editor .x-form-field-wrap .x-form-trigger {
+	height: 27px;
+}
+/* input框 */
+.x-form-text, textarea.x-form-field{
+    line-height: 25px;
+    /* 覆盖ext对ie的特殊效果 */
+	top: 0 !important;
+	margin: 8px 0 !important;
+	/* 覆盖ext对输入框设置的顶部背景 */
+	background:  #fff;
+}
+/* 顶部toolbars中input的设置 */
+.ext-strict .x-small-editor .x-form-text {
+	height: 25px!important;
+	outline: none;
+	display: inline-block;
+	/* 覆盖ext对ie的特殊效果 */
+	top: 0 !important;
+	margin: 8px 0 !important;
+}
+/* eall 覆盖输入框的高度 */
+.ext-safari .x-form-text {
+	height: 25px;
+	padding: 0 3px;
+}
+.ext-strict .x-form-text {
+	height: 25px;
+}
+/* form中的label上下高度 */
+.x-form-item label{
+	line-height: 29px;
+	padding: 0 3px;
+}
+/* form --------------------------------------------- */
+
+/* Grid */
+/* 控制了表格行高 */
+.x-grid3-row td, .x-grid3-summary-row td {
+	line-height: 25px;
+	outline: none;
+}
+/* 控制表头行高 */
+.x-grid3-hd-row td {
+	height: 25px;
+	padding: 3px;
+}
+/* 以下两段代码控制了特殊状态下标题栏的边框 */
+.x-grid3-hd-row td.x-grid3-hd-over{
+	padding:0;
+}
+.x-grid3-hd-row td.x-grid3-hd-menu-open{
+	padding:0;
+}
+/* 悬浮状态表头的特殊处理 */
+td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-asc .x-grid3-hd-inner, td.x-grid3-hd-menu-open .x-grid3-hd-inner {
+	height: 25px;
+	padding: 3px 9px;
+	line-height: 25px;
+}
+/* form --------------------------------------------- */

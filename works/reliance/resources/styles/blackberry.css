@@ -1,0 +1,97 @@
+/*施工状态*/
+/*暂时使用样式覆盖berry.css*/
+
+/* 登陆页面暂时不做修改 */
+
+/* 暂时直接修改背景色，主要针对mf页面，如果登陆界面出现了问题再提供其他解决方案 */
+html,body{
+	background-color: #ABA8A7;
+}
+
+.mf-wrapper {
+	background: #394263;
+}
+.mf-process{
+	background: url(../img/blackberry/bg-top-d.png);
+	background-position: -250px -62px;
+}
+.mf-top{
+	background: url(../img/blackberry/bg-top.png);
+}
+.mf-top-left{
+	background: rgba(57,66,99,0.3);
+}
+.mf-top-admin:hover {
+	background-color: #1ca1cb;
+}
+.mf-tab-fill{
+	background: url(../img/blackberry/bg-top-d.png);
+	background-position: -250px -66px;
+}
+.mf-tab-btm-fill{
+	background-color: #ABA8A7;
+	border-top: 1px solid #373737;;
+}
+.mf-tab-item{
+	background: transparent;
+	color: #9a9a9c;
+}
+.mf-tab-item:active{
+	background:rgba(0,0,0,0.2);
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#35000000,endcolorstr=#35000000);
+}
+.mf-tab-item.current{
+	border-left: none;
+	border-right: none;
+	color: #48484a;
+	border-top: 3px solid #1ca1cb;
+	background: #ABA8A7;
+}
+.mf-left-mass{
+	background: #ABA8A7;
+}
+.mf-tab-content{
+	background-color: #ABA8A7;
+	border-top: none;
+}
+.mf-left-nav ul{
+	background-color: #394263;
+}
+.mf-left-nav ul li:first-child{
+	background-color: #394263;
+	border-bottom: 1px solid #394263;
+}
+.mf-left-nav ul.current li:first-child{
+	background-color: #303753;
+}
+.mf-left-nav li{
+	color: #d6d6d6;
+	border-right: none;
+	border-bottom: 1px solid #445a99;
+	background: #445a99;
+}
+.mf-left-nav li:hover {
+	color: #d6d6d6;
+	background-color: #40A6B8;
+}
+.mf-left-nav li.focus{
+	color: #f0efef;
+	font-size: 14px;
+	background: #1CA1CB;
+	border-right: 5px solid #1CA1CB;
+}
+.mf-left-nav-first{
+	border-right: 9px solid #373737;
+}
+
+
+.mf-lay-set-head{
+	color: #fff;
+	background: #394263;
+}
+.mf-lay-set-tab-item.current{
+	color: #000;
+}
+.mf-lay-set-tab-item.current i{
+	color: #00a1c9;
+}

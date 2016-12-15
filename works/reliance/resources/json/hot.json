@@ -1,0 +1,38 @@
+{
+	"success":true,
+	"message":"messageeeee!",
+	"hotbus":[
+		{
+			"name":"App Management",
+			"mid":"1001"
+		},
+		{
+			"name":"Attribute Management",
+			"mid":"1002"
+		},
+		{
+			"name":"Plan Management",
+			"mid":"1003"
+		},
+		{
+			"name":"Device Management",
+			"mid":"1004"
+		},
+		{
+			"name":"Data Release",
+			"mid":"1005"
+		},
+		{
+			"name":"Data Relation",
+			"mid":"1006"
+		},
+		{
+			"name":"Public Image",
+			"mid":"1007"
+		},
+		{
+			"name":"Staff Management",
+			"mid":"2001"
+		}
+	]
+}

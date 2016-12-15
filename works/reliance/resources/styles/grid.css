@@ -1,0 +1,15 @@
+.even {
+	background: #EDF4FD none repeat scroll 0%;
+	margin: 0pt;
+	padding: 0pt;
+}
+
+.odd {
+	background: white none repeat scroll 0%;
+	margin: 0pt;
+	padding: 0pt;
+}
+
+.even:hover ,.odd:hover{
+	background-color: #CBE1FC;
+}

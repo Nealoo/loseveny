@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登陆界面</title>		
+		<link rel="stylesheet" type="text/css" href="resources/styles/base.css" />
+		<link rel="stylesheet" type="text/css" href="resources/styles/berry.css" />
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/ext-all.css">
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-berry.css">
+		<link rel="stylesheet" type="text/css" href="resources/styles/ux_1416973000_2207642/iconfont.css">
+	</head>
+	<body>
+		<div class="lg-wrapper">
+			<img class="lg-left-logo" src="resources/img/berry/logo-login.png">
+			<img class="lg-right-bk" src="resources/img/berry/ipad-bg-login.png" />
+			<img class="lg-right-light" src="resources/img/berry/gaoguang-ipad-bg-login.png" />
+			<div class="lg-right-input">
+				<div class="lg-right-input-inner">
+					<div class="lg_ip">
+						<input id="lg_ip_username" placeholder="User Name" maxlength="20" type="text" />
+						<i class="iconfont">&#xe604;</i>
+					</div>
+					<div class="lg_ip">
+						<input id="lg_ip_password" placeholder="Password" maxlength="12" type="password" />
+						<i class="iconfont">&#xe604;</i>
+					</div>					
+					<input class="lg_ip short" id="lg_ip_code" placeholder="Code" maxlength="4" type="text" />
+					<div id="lg_right_code"><img src="/jcaptcha.jpg"></div>
+					<input id="lg_ip_checkbox" type="checkbox" /><span>Remember me</span>
+					<a id="lg_ip_btn">Login</a>
+				</div>				
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="resources/scripts/jquery.js" ></script>
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		<script>
+			var jq=$.noConflict();
+			
+			// 模拟input外边框
+			jq('.lg_ip input').focus(function(){
+				jq(this).parent().css('border','1px solid #12bd9b');
+				
+				// 优化交互step1
+				if(jq(this).val() != ''){
+					jq(this).next().show();
+				}
+			});
+			
+			jq('.lg_ip input').keypress(function(){
+				// 优化交互step2
+				if(jq(this).val() != ''){
+					jq(this).next().show();
+				}
+			});
+			
+			// 解决模拟输入框导致的后部无法点击的情况
+			jq('.lg_ip').click(function(){
+				jq(this).find('input').focus();
+			});
+			
+			// 删除符号的显示与删除
+			jq('.lg_ip input').blur(function(){
+				jq(this).parent().css('border','1px solid #c6c0bb');
+				
+				// 解决BUG 点击删除符号时导致input失去焦点
+				if(jq('.lg_ip i:hover').length == 1){
+					return;
+				}
+				
+				jq(this).next().hide();
+			});
+			
+//			// 删除符号的显示与删除
+//			jq('.lg_ip').hover(function(){
+//				if(jq(this).find('input').val()!=''){
+//					jq(this).find('i').show();
+//				}
+//			},function(){
+//				if(jq(this).find('input:focus').length == 0){
+//					jq(this).find('i').hide();
+//				}
+//			});
+
+			// 点击删除
+			jq('.lg_ip i').click(function(){
+				jq(this).hide().prev().val('');
+			});
+			
+			// 登陆事件
+			jq('#lg_ip_btn').click(function(){
+				var param = {'username':jq('#lg_ip_username').val(),'password':jq('#lg_ip_password').val()};
+				var url = 'resources/json/login.json';
+				var action = '';
+				doAjax(url,param,action,function(message){
+					location.href='mainframe.html';
+				});
+			});
+			
+			/** 从后台获取json的方法
+			 * params:
+			 * 	urll:    (type:string) action的地址。
+			 * 	param:   (type:object) 需要传递的参数们。
+			 * 	action:  (type:string) action中的方法名。
+			 *  callback:(type:function)   回调函数
+			 * test function
+			 * doAjax(url,param,action,callback);
+			**/
+			function doAjax(urll,param,action,callback){
+				var inputs={};
+				inputs["param"] = encodeURIComponent(Ext.util.JSON.encode(param));
+				inputs["action"] = action;
+				
+				Ext.Ajax.request({
+					url:urll,
+				    //params : inputs,
+				    success: function(r) {
+				    	var message =  Ext.util.JSON.decode(r.responseText);
+				        if(message.success == false){
+				        	Ext.Msg.alert('调用失败!', message.message);
+				        }else if(message.success == true){
+				        	callback(message);
+				        }
+				    },
+				    failure:function(){
+				    	alert('ajax请求无法得到响应！');
+				    }
+				});
+			}
+		</script>
+	</body>
+</html>

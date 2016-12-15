@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>框架内嵌内容</title>
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/ext-all.css">
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-berry.css">
+		<link rel="stylesheet" type="text/css" href="resources/styles/xtheme-berry-advanced.css">
+		<!--<link rel="stylesheet" type="text/css" href="resources/styles/base.css">-->
+	</head>
+	<body>
+		<div id="target"></div>
+		
+		<div id="tablee" style="margin-top: 10px;"></div>
+		<div id="target11"></div>
+		
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		
+		<script type="text/javascript">
+			Ext.onReady(function(){
+				new Ext.Panel({
+					title:"An AWESOME Title",
+					id:"testp",
+					width:1000,
+					renderTo:"target"
+				});
+				new Ext.FormPanel({
+					
+					layout:"column",
+					width:"100%",
+					items: [{
+						columnWidth: 0.3,
+						layout: "form",
+						items: {
+							xtype:"textfield",
+							fieldLabel:"输入号码",
+							anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.3,
+							layout:"form",
+							items:{
+								xtype:"combo",
+								fieldLabel:"选择号码",
+								anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.2,
+							layout:"form",
+							items:{
+								xtype:"textfield",
+								fieldLabel:"输入号码",
+								anchor:"90%"
+							}
+						}, {
+							columnWidth: 0.1,
+							
+							items:{
+								xtype:"button",
+								text:"搜索"
+							}
+						}, {
+							columnWidth: 0.1,
+							
+							items:{
+								xtype:"button",
+								text:"删除"
+							}
+						}
+					]
+				});
+				
+//				 var dp = new Ext.DatePicker({  
+//			        renderTo: 'target11',  
+//			        minDate: Date.parseDate("2009-01-01","Y-m-d"),  
+//			        maxDate: Date.parseDate("2009-12-30","Y-m-d"),  
+//			        value: Date.parseDate("2009-12-30","Y-m-d"),  
+//			        handler: function(){  
+//			            Ext.Msg.alert("Date",Ext.util.Format.date(this.getValue(),'Y-m-d'));  
+//			        }  
+//			    });
+				
+				var serviceType = new Ext.form.ComboBox({
+						
+					});
+					var offerId = new Ext.form.TextField({});
+					var offerName = new Ext.form.TextField({});
+					var toolbar = new Ext.Toolbar({
+						renderTo:"testp",
+						
+						frame: true,
+						items: ["Service Type","",serviceType,
+						        "-","Offer ID","",offerId,
+						        "-", "Offer Name", "",offerName,
+						        "-", {
+										xtype:"button",
+										cls:"berry",
+										text: "Search",
+										minWidth: 70,
+										}
+								]
+						});
+				
+				var data=[ [1, 'EasyJWeb', 'EasyJF','www.easyjf.com'],
+
+					[2, 'jfox', 'huihoo','www.huihoo.org'], 
+					
+					[3, 'jdon', 'jdon','www.jdon.com'],
+					
+					[4, 'springside', 'springside','www.springside.org.cn'],
+
+					[5, 'jfox', 'huihoo','www.huihoo.org'], 
+					
+					[6, 'jdon', 'jdon','www.jdon.com'],
+					
+					[7, 'springside', 'springside','www.springside.org.cn'],
+
+					[8, 'jfox', 'huihoo','www.huihoo.org'], 
+					
+					[9, 'jdon', 'jdon','www.jdon.com'],
+					
+					[10, 'springside', 'springside','www.springside.org.cn'] ];
+					
+					var store=new Ext.data.SimpleStore({data:data,fields:["id","name","organization","homepage"]});
+					
+					var grid = new Ext.grid.GridPanel({
+					
+					renderTo:"tablee",
+					
+					title:"The Second GridPanel",
+					
+					height:300,
+					
+					width:1000, 
+					
+					cls:"shadow",
+					
+					columns:[{header:"TeamName",dataIndex:"name"},
+					
+					{header:"Devallll",dataIndex:"organization"},
+					
+					{header:"WebSite",dataIndex:"homepage"}],
+					
+					store:store,
+					
+					autoExpandColumn:2,
+					
+					bbar:new Ext.PagingToolbar({ 
+
+              pageSize:8,    
+
+                store:store,  
+
+               displayInfo: true,     
+
+                displayMsg: '显示 {0}-{1}条记录，共 {2} 条',     
+
+                emptyMsg: "没有记录"  
+
+              
+
+            })  
+					
+				}); 
+			});
+		</script>
+	</body>
+</html>

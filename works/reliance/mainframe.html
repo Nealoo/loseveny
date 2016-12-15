@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+		<title>ES Management</title>
+		
+		<link rel="shortcut icon" href="resources/img/berry/title_icon_logo.png">
+		<link rel="stylesheet" type="text/css" href="resources/styles/ux_1416973000_2207642/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="resources/styles/base.css" />
+		<link rel="stylesheet" type="text/css" href="resources/styles/berry.css" />
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/ext-all.css">
+		<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-berry.css" class="link-schemes">
+		<link rel="stylesheet" type="text/css" href="resources/styles/simpopo.css" />
+	</head>
+	<body style="height: 100%;">
+		<div class="mf-wrapper">
+			<div class="mf-top">
+				<div class="mf-top-left">
+					<img class="mf-top-logo" src="resources/img/berry/logo-top.png">
+					<span class="mf-top-logo-label"><strong>ES</strong>  Management</span>
+				</div>
+				<div class="mf-top-hide"><i class="iconfont">.</i></div>
+				<div class="mf-top-admin">
+					<i class="iconfont" style="font-size: 29px;vertical-align: middle;margin-left: 20px;">&#xe624;</i>
+					<img style="width: 50px;height: 50px;border-radius: 50px;display: none;" src="resources/img/berry/touxiang-top.png">
+					<span id="mf_top_username">Admin</span><div class="rotate"><i class="iconfont">&#xe622;</i></div>
+					<ul>
+						<!--<li id="mf_top_setting"><i class="iconfont">&#xe611;</i>Setting</li>-->
+						<li>
+							<i class="iconfont">&#xe611;</i>
+							<div class="mf-lay-set-tab-content menu">
+								<ul>
+									<li class="schemes current" id="mf_lay_set_berry"><!--<span class="iconfont"></span>--></li>
+									<li class="schemes" id="mf_lay_set_blackberry"><!--<span class="iconfont"></span>--></li>
+									<!--<li class="schemes" id="mf_lay_set_blueberry"><span class="iconfont"></span></li>-->
+								</ul>
+							</div>
+						</li>
+						<li id="mf_top_logout"><i class="iconfont">&#xe612;</i>Logout</li>
+					</ul>
+					
+				</div>
+				<!--<div class="mf-top-lang">English(United States)<i class="iconfont">&#xe622;</i></div>
+				<div class="mf-top-serch">
+					<i class="iconfont">&#xe617;</i>
+					<input type="text" value="" placeholder="..." />
+				</div>-->
+			</div><!-- mf-top  END -->
+			
+			<div class="mf-left-nav" id="mf_left_nav">
+				<ul class="mf-left-nav-first">
+					<li id="mf_left_nav_home"><i class="iconfont">&#xe61b;</i>HOME</li>
+					<b style="position: absolute;top: 0;left: 0;"></b><!--简化js-->
+				</ul>
+				<!--以下代码暂留作测试之用-->
+				<!--<ul>
+					<li>First Line</li>
+					<li mid="001" tar="justest.html">test1</li>
+					<li mid="002" tar="justest.html">test2</li>
+					<li mid="003" tar="justest.html">test3</li>
+					<li mid="004" tar="justest.html">test4</li>
+				</ul>
+				<ul>
+					<li>Scecond Line</li>
+					<li mid="005" tar="justest.html">test4</li>
+					<li mid="006" tar="justest.html">1</li>
+				</ul>
+				<ul>
+					<li>Third Line</li>
+					<li mid="007" tar="justest2.html">test5</li>
+					<li mid="008" tar="justest.html">2134</li>
+				</ul>-->
+			</div><!-- mf-left-nav  END -->
+			
+			<div class="mf-left-mass">
+				<div class="mf-process">
+					<!--面包屑暂注释，js仍在，随时可恢复-->
+					<!--<span>Sales Order</span>/<strong>Sales Order inner</strong>-->
+				</div>
+				<!-- 一个专门用来补白色的div -->
+				<div class="mf-tab-btm-fill"></div> 
+				<span class="mf-tab-ctrl" id="mf_tab_prev"><i class="iconfont">&#xe61d;</i></span>
+				
+				<div class="mf-tab-container">
+					<!-- 结构div 使得菜单栏可以在宽度适应屏幕的同时左边缩进 -->
+					<div class="mf-tab-fill"></div>
+					<div class="mf-tab" id="mf_tab">
+						<span class="mf-tab-ctrl" id="mf_tab_next"><i class="iconfont">&#xe603;</i></span>
+						<div class="mf-tab-item first current" id="mf_tab_a01">
+							<span>Home</span>
+							<div></div>
+						</div>
+					</div>
+				</div>
+					
+				<div class="mf-tab-content" id="mf_tab_content">
+					<iframe src="justest.html" scrolling="no" width="100%" height="100%" frameborder="0" id="mf_tab_content_a01"></iframe>
+				</div>
+			</div><!-- mf-left-mass  END -->
+			<!--<div class="mf-bottom">
+				底部通知栏       ................
+			</div>-->
+		</div>
+		
+		<script id="tpl_mf_top_setting" type="text/x-handlebars-template">
+			<div class="mf-lay-set-wrapper">
+				<div class="mf-lay-set-head">
+					<div class="mf-lay-set-title">
+						<span><i class="iconfont">&#xe611;</i>Setting</span>
+						<span class="mf-lay-set-close"><i class="iconfont">&#xe607;</i></span>
+					</div>
+					<div class="mf-lay-set-tab">
+						<div class="mf-lay-set-tab-item current"><i class="iconfont">&#xe61f;</i>Color Schemes</div>
+						<!--<div class="mf-lay-set-tab-item"><i class="iconfont">&#xe61e;</i>Change Password</div>-->
+					</div>
+				</div>
+				<div class="mf-lay-set-body">
+					<div class="mf-lay-set-tab-content current">
+						<div class="mf-lay-set-tab-content-text">
+							<span>Here you can choose the color schemes you like.</span>
+						</div>
+						<ul>
+							<li class="schemes current" id="mf_lay_set_berry"><span class="iconfont"></span></li>
+							<li class="schemes" id="mf_lay_set_blackberry"><span class="iconfont"></span></li>
+							<!--<li class="schemes" id="mf_lay_set_blueberry"><span class="iconfont"></span></li>-->
+						</ul>
+					</div>
+					<div class="mf-lay-set-tab-content">
+						
+					</div>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.js" ></script>
+		<script type="text/javascript" src="resources/scripts/common.js" ></script>
+		<script type="text/javascript" src="resources/scripts/artDialog.js"></script>
+		<script>
+			var jq=$.noConflict();
+			// 常量 页面应容纳的页签个数
+			var TAB_NUM = 6;
+			// 常量 每个页签的宽度值（请务必保持与页签实际宽度相同）
+			var TAB_WIDTH = 162;
+			// 记录浏览器scrollHeight和height的差值，每个浏览器此值存在差异，因此需要进行计算，初值-999用来识别未赋值状态，以保证首次运行时准确获取到正确的差值
+			var D_VALUE = -999;
+			// 设定一个误差值，当scrollHeight 比 height高出的部分小于这个误差时，拒绝调整页面高度。注意，此误差越大越易导致高度微调后显示不全。
+			var C_VALUE = 50;
+			//TODO 临时变量
+			var COLOR_SC = "berry";
+			// 搞出一个可重复使用配置页面  初始状态隐藏
+			var artSetting = art.dialog({
+				content: jq('#tpl_mf_top_setting').html(),
+				id : 'mf_setting_w',
+				title : '',
+				padding: 0,
+				width : 800,
+				height: 450,
+				resize : true,
+				lock : true,
+				top: 80
+			});
+
+			artSetting.hide();
+			// 为弹出页面绑定事件
+			bindSetting();
+			
+			// 动态获取页签宽度，使页签可以自适应长度
+			TAB_NUM = parseInt( (jq('.mf-tab-container').width()-250)/TAB_WIDTH );
+			
+			//TODO 临时方法，用于显示隐藏的换肤功能，方便调试
+			//jq('#mf_top_setting').hide();
+			
+			
+			function showSetting(){
+				jq('#mf_top_setting').show();
+			}
+			
+			//jq(function(){
+				// 加载菜单
+				loadMenu();
+				
+				// 立即修正页面高度
+				//resizeWindow();
+				
+				// 修正mf-wrapper高度
+				jq('body').height(jq('body').height()-120);
+				//jq('.mf-wrapper').height(jq('.mf-wrapper').height()-104);
+				
+				// 修正iframe高度
+				setTimeout(function(){
+					setIframeHeight('mf_tab_content_a01');
+				},1000);
+				
+				
+				// 设置事件，防止愚蠢的人类企图破坏页面高度的举动
+				jq(window).resize(function(){
+					//resizeWindow();
+				});
+
+				// 右上角设置出现事件
+				var hoverTimer,unhoverTimer; // 防止鼠标无意划过时对下拉框的影响，同时消除slide效果带来的bug
+				jq('.mf-top-admin').hover(function(){
+					clearTimeout(unhoverTimer);
+                	hoverTimer = setTimeout("jq('.mf-top-admin ul').slideDown();", 200);
+					//jq('.mf-top-admin i:eq(0)').html('&#xe61a;');
+				},function(){
+					clearTimeout(hoverTimer);
+					unhoverTimer = setTimeout("jq('.mf-top-admin ul').slideUp()",200);
+					//jq('.mf-top-admin i:eq(0)').html('&#xe619;');
+				});
+				
+				// HOME菜单事件绑定
+				jq('#mf_left_nav_home').click(function(){
+					
+					// 移动页签容器至可见区域
+					jq('.mf-tab').css('left',0);
+					
+					// 先完成点击页签之后的两个事件
+					jq('#mf_tab_a01').addClass('current').siblings().removeClass('current');
+					jq('#mf_tab_content_a01').show().siblings().hide();
+					
+					// 变动左侧的菜单栏，使其完成打开和闭合操作
+					jq('#mf_left_nav').find('.focus').removeClass('focus').next().remove();
+				});
+				// Welcome页签事件绑定
+				jq('#mf_tab_a01').click(function(){
+					// 高亮当前的页签  +  显示当前的页签内容
+					jq(this).addClass('current').siblings().removeClass('current');
+					jq('#mf_tab_content_a01').show().siblings().hide();
+					jq('#mf_left_nav_home').click();
+				});
+				
+				// Setting弹窗开启事件（右上角点击）
+				jq('#mf_top_setting').click(function(){
+					
+					artSetting.show();
+					
+				});
+				
+				jq('#mf_top_logout').click(function(){
+					if(confirm("Are you sure you want to logout?")){
+						
+						var url = 'resources/json/init.json';//'modules/LoginAction.go';//
+						var action = 'Logout';
+					
+						doAjax(url,'',action,function(r){
+							
+							location.href = 'login.jsp';
+						});
+					}
+				});
+				
+				// 绑定收起菜单功能
+				jq('.mf-top-hide').toggle(function(){
+					jq('#mf_left_nav').css('left','-260px');
+					jq('.mf-left-mass').css('margin-left','0');
+					jq('#mf_tab').css('margin-left','20px');
+					jq('#mf_tab_prev').css('left','10px');
+					jq('.mf-tab-fill').css('left','0');
+				},function(){
+					jq('#mf_left_nav').css('left',0);
+					jq('.mf-left-mass').css('margin-left','250px');
+					jq('#mf_tab').css('margin-left','270px');
+					jq('#mf_tab_prev').css('left','260px');
+					jq('.mf-tab-fill').css('left','250px');
+				});
+				
+				// 菜单悬停效果
+				jq(window).scroll(function(){
+					var h1 = jq('#mf_left_nav').height();
+					var h2 = window.innerHeight - 104;
+					var h3 = document.body.scrollTop + document.documentElement.scrollTop;
+					//console.log(h1 + ',' + h2 +','+ h3);
+					if(h1 - h3 < h2 - 1){
+						if(h1 < h2){
+							//console.log('fixed top');
+							jq('#mf_left_nav').css('position','fixed');
+							jq('#mf_left_nav').css('top','62px');
+							jq('#mf_left_nav').css('bottom','auto');
+						}else{
+							//console.log('fixed bottom');
+							jq('#mf_left_nav').css('position','fixed');
+							jq('#mf_left_nav').css('top','auto');
+							jq('#mf_left_nav').css('bottom','0');
+						}
+					}else{
+						//console.log('not fixed');
+						jq('#mf_left_nav').css('position','absolute');
+						jq('#mf_left_nav').css('top','62px');
+						jq('#mf_left_nav').css('bottom','auto');
+					}
+				});
+				
+				bindTab();
+				bindTabCtrl();
+				initPage();
+				
+				/** 修正页面高度的方法
+				 * 
+				 *  这是一个暂时废弃的函数，可以使得页面高度适应屏幕，只出现iframe滚动条，但框架不滚动。
+				 *  在窗口高度值极小的情况下，框架会滚动照顾左侧菜单
+				**/
+				function resizeWindow(){
+					// 修正页面高度，阻止一切嵌套、边框、填充对100%高度的影响
+					jq('.mf-left-mass').height(jq('body').height() - 62);
+					jq('.mf-tab-content').height(jq('.mf-left-mass').height() - 53);
+				}
+				
+				/** 修正iframe高度的方法
+				 * 
+				 *  @ params:
+				 * 		id:需要调节高度的iframe的id
+				 * 		click:页面点击时调用重置方法时传递string参数'click'，不需要再次增加35的高度。
+				 * 
+				 * 	@var
+				 * 		mLength:修正页面高度时获取的高度可能略小于应设高度
+				**/
+				function setIframeHeight(id,click){
+					if(click == 'click'){
+						var mLength = 0;						
+						var sh= jq('iframe:visible')[0].contentWindow.document.body.scrollHeight;
+						var he = jq('iframe:visible').height();
+						
+						// 新增限制条件，如果sh小于he，则页面不需要进行任何变化就可以完全展示页面
+						if(sh <= he){
+							return;
+						}
+						
+						// 新增拒绝增高页面的条件  如果sh增高的高度小于预计误差则页面拒绝调整高度
+						if(sh - he == D_VALUE || sh - he <= C_VALUE){
+							//console.log('same height：'+D_VALUE);
+							return;
+						}else{
+							
+							// 由于scrollHeight始终比height要高出D_VALUE，所以为了防止页面不断增高，对高度减去D_VALUE
+//							if(D_VALUE != -999){
+//								var newHeight = sh - D_VALUE;
+//							}else{
+//								var newHeight = sh;
+//							}
+							
+							jq('#'+id).attr('height',sh);
+							
+							setTimeout(function(){
+								sh = jq('iframe:visible')[0].contentWindow.document.body.scrollHeight;
+								he = jq('iframe:visible').height();
+								// 重新写入高度差值
+								D_VALUE = (sh - he);
+								// 由于scrollHeight错误的增高了D_VALUE，与height的差距达到了2*D_VALUE,所以此处再减去一个D_VALUE
+								//jq('iframe:visible')[0].contentWindow.document.body.scrollHeight = sh - D_VALUE;//事实证明scrollHeight无法被认为设定。
+							},300);
+							
+							return;
+						}
+						
+					}else{
+						var mLength = 0;
+					}
+					if(id != null){
+						var h = jq('#'+id)[0].contentWindow.document.body.scrollHeight + mLength;
+						jq('#'+id).attr('height',h);
+					}else{
+						var h = jq('iframe:visible')[0].contentWindow.document.body.scrollHeight + mLength;
+						jq('iframe:visible').attr('height',h);
+					}
+					//alert(h);
+				}
+				
+				/** 初始化页面方法
+				 * 
+				**/
+				function initPage(){
+					//var url = 'modules/LoginAction.go';//'resources/json/init.json';
+					//var action = 'UserInfo';
+					
+					doAjax('resources/json/init.json','','UserInfo',function(r){
+						
+						// 设置显示的用户名
+						jq('.mf-top-admin span').html(r.user);
+						
+						if(r.avatar != ''){
+							jq('.mf-top-admin img').attr('src',r.avatar).show().prev().hide();
+						}
+						
+					});
+				}
+				
+				/** 加载菜单方法
+				 * 
+				**/
+				function loadMenu(){
+					var url = 'resources/json/menu.json';
+					//url = 'modules/menumanagement/menumanagement.go';
+					var action = '';
+					action = 'loadMenu';
+					doAjax(url,'',action,function(r){
+						
+						// 修改当前welcome页签的内容
+						jq('#mf_tab_content iframe:first').attr('src',r.home.tar);
+						
+						var tpl = new Ext.XTemplate(
+							'<tpl for="menuContent">',
+							'<ul>',
+								'<li><i class="iconfont f">&#xe622;</i>{name}</li>',
+								'<tpl for="subContent">',
+								'<li mid="{mid}" tar="{tar}">{name}</li>',
+								'</tpl>',
+							'</ul>',
+							'</tpl>'
+						);
+						
+						// 加载模板
+						tpl.append(Ext.get("mf_left_nav"),r);
+						
+						// 绑定菜单事件
+						bindMenu();
+						
+					});
+				}
+				
+				/** 弹层Setting绑定功能方法
+				 * 
+				**/
+				function bindSetting(){
+					
+					// 绑定关闭弹窗事件
+					jq('.mf-lay-set-close').click(function(){
+						artSetting.hide();
+					});
+					
+					jq('.mf-lay-set-tab-content .schemes').click(function(){
+						
+						// 新增：为当前颜色方案增加选中效果 15-1-12
+						jq(this).addClass('current').siblings().removeClass('current');
+						
+						// 隐藏弹窗
+						artSetting.hide();
+						
+						// 从标签中获取颜色方案名称
+						var color = jq(this).attr('id').replace(new RegExp('mf_lay_set_'),'');
+						
+						// 记录当前所选择的颜色方案
+						COLOR_SC = color;
+						
+						// 移除现有的全部配色方案  暂时不移除基础框架样式berry.css  以配合blackberry对其实施的覆盖操作
+						jq('.link-schemes').remove();
+						
+						jq('head').append('<link rel="stylesheet" type="text/css" href="resources/styles/'+color+'.css" class="link-schemes" class="link-schemes" />');
+						//jq('head').append('<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-'+color+'.css" class="link-schemes">');
+						
+						// 尝试修改iframe中所引用的样式文件。
+						jq('iframe').contents().find('head').append('<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-'+color+'.css">');						
+						
+					});
+				}
+				
+				/** 导航菜单绑定功能方法
+				 * 
+				**/
+				function bindMenu(){
+					// 首行被点击
+					jq('.mf-left-nav ul').find('li:first').click(function(){
+						if(jq(this).parent().hasClass('current')){
+							jq(this).siblings().slideUp().parent().removeClass('current');
+							return;
+						}
+						jq(this).parent().addClass('current').siblings().removeClass('current');
+						jq(this).siblings().slideDown().parent().siblings().find('li:not(:first)').slideUp();
+					});
+					
+					// 菜单项被点击事件
+					jq('.mf-left-nav ul').find('li:not(:first)').click(function(){
+						// focus对象absolute会脱离文档，需要后续添加<li>来支撑文档结构
+						jq(this).parent().parent().find('.focus').removeClass('focus').next().remove();
+						jq(this).addClass('focus').after('<li style="display:list-item;">p</li>');
+						
+						// 打开新页签
+						if(checkPerms("info")){
+							_openBusi(jq(this).attr('tar'),jq(this).html(),jq(this).attr('mid'));
+						}else{
+							//TODO 错误原因页面
+						}
+						
+						// 记录此菜单被点击了一次。
+						RecordBus(jq(this).attr('mid'));
+
+						// 实现菜单项被点击后的动态效果
+						setTimeout("jq('li.focus').hide()",50);
+						setTimeout("jq('li.focus').css('transform','translateX(5px)');",50);
+						setTimeout("jq('li.focus').show()",50);
+						setTimeout("jq('li.focus').css('transition','transform .4s')",100);
+						setTimeout("jq('li.focus').css('transform','translateY(0)')",120);
+						setTimeout("jq('li.focus').css('transition','')",500);
+
+					});
+					
+				}
+				
+				/** 页签绑定功能方法
+				 * 
+				**/
+				function bindTab(){
+					
+					// 由于需要绑定事件的tab并不是同时被删除和出现，所以要避免tabitem被多次绑定事件的情况发生。
+					jq('.mf-tab-item:not(.first)').unbind('click mousedown mouseup mouseover');
+					jq('.mf-tab-item i').unbind('click mouseover');
+					
+					// 页签切换事件
+					jq('.mf-tab-item:not(.first)').click(function(){
+						jq(this).addClass('current').siblings().removeClass('current');
+						jq('#mf_tab_content_'+jq(this).attr('id').substr(7)).show().siblings().hide();
+						
+						// 点击后需保证将页签显示在可视区域		
+						// 平移公式：move = (current - TAB_NUM)*-TAB_WIDTH
+						var leftHide = jq('#mf_tab').css('left').replace(new RegExp('px'),'')/(-TAB_WIDTH);
+						// gap值为current显示位置，其中1-TAB_NUM为可见位置。
+						var gap = jq('.mf-tab-item.current').index() - leftHide;
+						if(gap > TAB_NUM){
+							//说明current不可见，在右侧第gap-TAB_NUM处
+							jq('#mf_tab').css('left',jq('#mf_tab').css('left').replace(new RegExp('px'),'')-TAB_WIDTH*(gap-TAB_NUM)+'px');
+						}
+						if(gap < 1){
+							//说明current不可见,在左侧-gap处
+							jq('#mf_tab').css('left',-(jq('.mf-tab-item.current').index()-1)*TAB_WIDTH+'px');
+						}
+						
+						// 左侧导航栏联动
+						var mid = jq(this).attr('id').replace(new RegExp('mf_tab_'),'');
+						jq('.mf-left-nav ul li[mid="'+mid+'"]').parent().not('.current').find('li:first').click();
+						jq('.mf-left-nav ul').find('li[mid="'+mid+'"]').not('.focus').click();
+						
+						//addClass('focus').siblings().removeClass('focus').parent().siblings().find('li.focus').removeClass('focus');
+						
+						// 修改面包屑
+						jq('.mf-process strong:first').html(jq('.mf-left-nav li.focus').html());
+						jq('.mf-process span:first').html(jq('.mf-left-nav ul.current li:first').html());
+						
+						
+					});
+					
+					// 页签关闭事件
+					jq('.mf-tab-item i').click(function(){
+						if(jq(this).parent().hasClass('current')){
+							jq(this).parent().prev().click();
+						}
+						jq('#mf_tab_content_'+jq(this).parent().attr('id').substr(7)).remove();
+						jq(this).parent().remove();
+						
+						// 隐藏左右切换按钮并将tab条归位
+						if(jq('.mf-tab-item').length<=TAB_NUM){
+							jq('#mf_tab').css('left','0');
+							jq('.mf-tab-ctrl').hide();
+							
+							// 使得左侧填充遮罩层退出左箭头下方
+							jq('.mf-tab-fill').css('width','20px');
+						}
+					});
+					
+					// 关闭按钮hover事件
+					jq('.mf-tab-item i').hover(function(){
+						jq(this).html('&#xe604;');
+					},function(){
+						jq(this).html('&#xe607;');
+					});
+					
+					// 页签的 *拖动* 改变顺序事件1 按键按下
+					// 内部变量 记录鼠标起始的位置
+					var orp, curp, $thi;
+					jq('.mf-tab-item:not(.first)').mousedown(function(e){
+						jq(this).css({
+							cursor: 'move',
+							position: 'relative',
+							zIndex: '100'
+						});
+						
+						// 记录鼠标初始状态的的位置
+						orp = e.clientX;
+//						console.log('orp'+orp);
+						
+						// 记录当前对象
+						$thi = jq(this);
+						
+						// 监听鼠标位置的变化
+						jq(document).mousemove(function(e){
+							curp = e.clientX;
+							var pchange = curp - orp;
+							
+							// 拖动之后立即使其移动
+							$thi.css('left',pchange);
+							
+						});
+						
+						// 监听该tab页签是否失去了焦点
+						jq('.mf-tab-item').hover(function(){
+							//
+						},function(){
+							jq(this).mouseup();
+						});
+					});
+					
+					// 页签的 *拖动* 改变顺序事件2 按键弹起
+					jq('.mf-tab-item:not(.first)').mouseup(function(){
+						
+						// 当按键未按下却弹起时，阻止事件发生
+						if(!$thi)return;
+						
+						jq(this).css({
+							cursor: 'default',
+							zIndex: '1'
+						});
+						
+						// 解除对鼠标移动的监听
+						jq(document).unbind('mousemove');
+						
+						curp = window.event.clientX;
+//						console.log('currp'+curp);
+						var pchange = curp - orp;
+						
+						var pchangep = Math.abs(pchange/TAB_WIDTH);
+						
+//						console.log(pchangep);
+						
+						// 鼠标弹起时恢复tab位置
+						$thi.css('left','0');
+						// 移动距离不到TAB_WIDTH px时，return
+						if(pchangep < 1){
+							// 将当前元素置为空，以保证下次按键弹起时程序不出错
+							$thi = null;
+							return;
+						}else if(pchange < 0){
+							// 待移动到的目标元素
+							var tarEle = $thi;
+							for(var i = 1; i<=pchangep; i++){
+								// 若前方没有元素，或前方的元素为最前方的Welcome，则终止向前查找
+								if(tarEle.prev().length == 0 || tarEle.prev().attr('id') == 'mf_tab_a01'){
+									break;
+								}
+								tarEle = tarEle.prev();
+							}
+							tarEle.before($thi[0].outerHTML);
+							// 插入元素后再次绑定事件
+							setTimeout('bindTab()',200);
+							$thi.remove();
+							$thi = null;
+						}else if(pchange > 0){
+							// 待移动到的目标元素
+							var tarEle = $thi;
+							for(var i = 1; i<=pchangep; i++){
+								if(tarEle.next().length == 0){
+									break;
+								}
+								tarEle = tarEle.next();
+							}
+							tarEle.after($thi[0].outerHTML);
+							// 插入元素后再次绑定事件
+							setTimeout('bindTab()',200);
+							$thi.remove();
+							$thi = null;
+						}
+					});
+				}
+				
+				/** 页签前后控制按钮绑定事件
+				 * 
+				**/
+				function bindTabCtrl(){
+					// 向前翻页按钮事件
+					jq('#mf_tab_prev').click(function(){
+						// 向右移动tab条
+						jq('#mf_tab').css('left',jq('#mf_tab').css('left').replace(new RegExp('px'),'')*1+TAB_WIDTH+'px');
+						
+						// 第一页签到头时右移则回到原位
+						if(jq('#mf_tab').css('left').replace(new RegExp('px'),'') >= 0){
+							// 041210 修复向右移动可能导致无限右移的BUG
+							jq('#mf_tab').css('left','0');
+							//console.log('右移判断'+jq('#mf_tab').css('left').replace(new RegExp('px'),''))
+						}
+					});
+					// 向后翻页按钮事件
+					jq('#mf_tab_next').click(function(){
+						// 可以全部显示时不再允许左移
+						if(jq('#mf_tab').css('left').replace(new RegExp('px'),'') <= (jq('.mf-tab-item').length - TAB_NUM)*(-TAB_WIDTH)){
+							return;
+						}
+						// 向左移动tab条
+						jq('#mf_tab').css('left',jq('#mf_tab').css('left').replace(new RegExp('px'),'')-TAB_WIDTH+'px');
+					});
+				}
+				
+				/** 新开页签方法
+				 * params:
+				 * 	url:frame的链接.
+				 * 	name:显示在页签上的名字。
+				 * 	id:菜单的唯一标识。
+				 * test function
+				 * _openBusi('justest.html','test','008');
+				**/
+				function _openBusi(url,name,id){
+					// 避免重复打开
+					if(jq('#mf_tab_content_'+id).length>0 || id==''){
+						jq('#mf_tab_'+id).click();
+						return;
+					}
+
+					// 准备新开页签
+					var tpl = new Ext.XTemplate(
+						'<div class="mf-tab-item" id="mf_tab_{id}" title="{name}">',
+							'<span>{name}</span>',
+							'<i class="iconfont">&#xe607;</i>',
+							'<div></div>',
+						'</div>'
+					);
+					// TODO TEST  FOR PRESENTATION 
+					// MOCK DATA CODE:
+					url = 'justest' + Math.round(Math.random()) +'.html';
+
+					var framet = new Ext.XTemplate(
+						'<iframe src="{url}" scrolling="no" width="100%" height="100%" frameborder="0" id="mf_tab_content_{id}"></iframe>'
+					);
+					
+					// 准备数据
+					var data = {'id':id,'name':name,'url':url};
+					
+					// 加载模板
+					tpl.append(Ext.get("mf_tab"),data);
+					framet.append(Ext.get('mf_tab_content'),data);
+					bindTab();
+					
+					var sInt = setInterval(function(){
+						
+						if(jq('#mf_tab_content_'+id).contents().find('body').length == 0)return;
+						
+						// 为嵌入的iframe绑定事件，以保证在因点击iframe中的内容而展开隐藏内容导致页面边长时可以及时调整页面高度。
+						jq('#mf_tab_content_'+id).contents().find('body').click(function(){
+							setIframeHeight('mf_tab_content_'+id,'click');
+						});
+						
+						// 立即修正高度，放置在事件绑定之后可以保证页面在后续被调整。
+						setIframeHeight('mf_tab_content_'+id);
+						
+						// 为新开的页签替换样式文件
+						jq('#mf_tab_content_'+id).contents().find('head').append('<link rel="stylesheet" type="text/css" href="common/js/ext/resources/css/xtheme-'+COLOR_SC+'.css">');
+						
+						clearInterval(sInt);
+						
+					},500);
+					
+					// 立即激活当前选项卡
+					jq('#mf_tab_'+id).click();
+					
+					// 判断页签是否需要平移按钮
+					if(jq('.mf-tab-item').length>TAB_NUM){
+						jq('.mf-tab').css('margin-left','290px');
+						
+						// 使得左侧填充遮罩层延伸到左侧箭头下方
+						jq('.mf-tab-fill').css('width','40px');
+						jq('.mf-tab-ctrl').show();
+					}
+				}
+				
+				//TODO 菜单权限检查
+				function checkPerms(){
+					// 检查是否有权限打开
+					return true;
+				}
+				
+				
+				/** 从后台获取json的方法
+				 * params:
+				 * 	urll:    (type:string) action的地址。
+				 * 	param:   (type:object) 需要传递的参数们。
+				 * 	action:  (type:string) action中的方法名。
+				 *  callback:(type:function)   回调函数
+				 * test function
+				 * doAjax(url,param,action,callback);
+				**/
+				function doAjax(urll,param,action,callback){
+					var inputs={};
+					inputs["param"] = encodeURIComponent(Ext.util.JSON.encode(param));
+					inputs["action"] = action;
+					
+					Ext.Ajax.request({
+						method: 'get',
+						url:urll,
+					    params : inputs,
+					    success: function(r) {
+					    	var message =  Ext.util.JSON.decode(r.responseText);
+					        if(message.success == false){
+					        	Ext.Msg.alert('调用失败ʾ', message.message);
+					        }else if(message.success == true){
+					        	callback(message);
+					        }
+					    },
+					    failure:function(){
+					    	alert('获取菜单失败！');
+					    }
+					});
+				}
+			//});
+				
+		</script>
+	</body>
+</html>

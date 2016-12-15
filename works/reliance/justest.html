@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>WELCOME</title>
+		
+		<link rel="stylesheet" href="resources/styles/base.css" />
+		<style>
+			.bcu{
+				
+				font-family: "Georgia", "Xin Gothic";
+				font-size: 90px;
+				margin: 0 auto;
+				color: #12bd9b;
+				text-shadow: 0px 1px 0px #64B300,0px 2px 0px #0087a6,0px 3px 0px #329900,0px 4px 0px #00758c,0px 5px 0px #555,0px 6px 0px #006a80,0px 0px 0px #006073,0px 8px 7px #005566;
+			}
+			.wel-top{
+				width: 430px;
+				position: relative;
+			}
+			.wel-top-text{
+				position: absolute;
+				top: 10px;
+				right: 20px;
+				font-size: 24px;
+				font-family: tahoma;
+				color: #fff;
+			}
+			.wel-top-text #a_name{
+				font-weight: bold;
+				margin-left: 5px;
+			}
+			.wel-top-text .sub-text{
+				display: block;
+				position: absolute;
+				top: 36px;
+				right: 0px;
+				font-size: 16px;
+				
+			}
+			.wel-content ul li{
+				width: 250px;
+				height: 120px;
+				text-align: center;
+				background-color: #e3e2e0;
+				float: left;
+				margin-right: 10px;
+				margin-top: 10px;
+				cursor: pointer;
+			}
+			.wel-content ul li:hover{
+				background: #d7d7d7;
+			}
+			.wel-content ul li span{
+				font-size: 14px;
+				line-height: 120px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div class="wel-top">
+			<img src="resources/img/bg-welcom.png" />
+			<div class="wel-top-text">Welcome<span id="a_name"></span><span class="sub-text">Browse recently</span></div>
+		</div>
+		
+		<div class="wel-content">
+			<ul>
+				<!-- 放置等待插入的tpl -->
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="common/js/ext/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="common/js/ext/ext-all.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.js" ></script>
+		<script type="text/javascript" src="resources/scripts/common.js" ></script>
+		
+		<script>
+			var name = window.parent.document.getElementById('mf_top_username').innerHTML;
+			document.getElementById('a_name').innerHTML = name;
+			
+			initPage();
+			
+			// 初始化 获取热门业务列表
+			function initPage(){
+				
+				var cNames = getCookiesName();//console.log('cNames='+cNames[]);
+				
+				if(cNames.length == 0){
+					
+					// 读取接口返回的热门业务
+					doAjax('resources/json/hot.json','','',function(r){
+						
+						for(var i = 0; i< r.hotbus.length; i++){
+							if(i = 8) break; // 放置文件内容太多破坏页面
+							var html = "<li onclick='openOffer(&quot;"+r.hotbus[i].mid+"&quot;)'><span>"+r.hotbus[i].name+"</span></li>";
+							$('.wel-content ul').append(html);
+						}
+						
+					});
+					
+				}else{
+					var mLists = [];//将要显示的前八个业务的数组
+					var maxScript = 0;//最大值在cNames中的角标
+					var maxCoo = 0;//最大值
+					for(var j = 0; j < (cNames.length>8?8:cNames.length); j++){//外层循环cNames.length到八次，最多拿八次最大值
+						for(var i = 0; i < cNames.length; i++){//内层循环拿本次的最大值
+							var cValue = parseInt( getCookie(cNames[i]) );
+							if(cValue > maxCoo){//发现较大值之后进行记录
+								maxCoo = cValue;
+								maxScript = i;
+							}
+						}
+						// 得到第一个最大值后进行储存，并将原数组内容清空,同时将最大值记录归零
+						mLists.push(cNames[maxScript]);
+						//console.log('cNames['+maxScript+']='+cNames[maxScript]);
+						//console.log('cNames='+cNames);
+						cNames[maxScript] = '';
+						maxCoo = 0;
+					}// 外层for
+					
+					// 循环将mList中的热门业务读出来显示
+					for(var k = 0; k< mLists.length; k++){
+						var mid = mLists[k].replace(/m/,'');
+						var html = "<li onclick='openOffer(&quot;"+mid+"&quot;)'><span>"+
+						$(top.document).find('.mf-left-nav ul').find('li[mid="'+mid+'"]').html()+"</span></li>";
+						$('.wel-content ul').append(html);
+					}
+					
+				}//else
+			}
+			
+			function openOffer(mid){
+				$(top.document).find('.mf-left-nav ul li[mid="'+mid+'"]').parent().not('.current').find('li:first').click();
+				$(top.document).find('.mf-left-nav ul').find('li[mid="'+mid+'"]').not('.focus').click();
+			}
+			
+			function doAjax(urll,param,action,callback){
+				var inputs={};
+				inputs["param"] = encodeURIComponent(Ext.util.JSON.encode(param));
+				inputs["action"] = action;
+				
+				$.ajax({
+					type:"get",
+					url:"",
+					async:true
+				});
+				Ext.Ajax.request({
+					url:urll,
+				    params : inputs,
+				    success: function(r) {
+				    	var message =  Ext.util.JSON.decode(r.responseText);
+				        if(message.success == false){
+				        	Ext.Msg.alert('调用失败ʾ', message.message);
+				        }else if(message.success == true){
+				        	callback(message);
+				        }
+				    },
+				    failure:function(){
+				    	alert('获取菜单失败！');
+				    }
+				});
+			}
+		</script>
+	</body>
+</html>

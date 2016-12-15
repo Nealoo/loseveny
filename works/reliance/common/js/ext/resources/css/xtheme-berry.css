@@ -1,0 +1,1053 @@
+/*
+ * Ext JS Library 2.0 Alpha 1
+ * Copyright(c) 2006-2007, Ext JS, LLC.
+ *
+ * @license LGPL
+ * @author Kemal Tunador <tunador@madrabaz.com>
+ * 
+ * @mender Lining7 <lining7@asiainfo.com>
+ * @adaptFor Reliance ES
+ * @editDate 2014-12-01
+ */
+
+html,body{
+	background-color: #fff;
+}
+
+.x-panel {
+    border-style: solid;
+    border-color: #E7E4DC;
+    margin-bottom: 15px;
+    /*box-shadow: 3px 3px #bbb;*/
+}
+/* 针对上传的组件写一个特殊class 使得panel自带的间距失效 */
+.x-panel.upload {
+	margin-bottom: 0;
+}
+.x-panel.shadow{
+	/*box-shadow: 3px 3px #bbb;*/
+}
+.x-panel-header {
+    /*color:rgba(255, 255, 255, 0.94);*/
+	/*border:1px solid #000000;*/
+	color: #000;
+	font-size: 14px;
+    background: #f2f2f2;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+}
+/* 主体部分边框颜色 */
+.x-panel-body {
+    border-color:#E7E4DC;
+}
+/* 底部工具条边框颜色 */
+.x-panel-bbar .x-toolbar {
+    border-color:#E7E4DC;
+}
+/* 顶部工具条边框颜色 */
+.x-panel-tbar .x-toolbar {
+    border-color: #E7E4DC;
+}
+/* 顶部标题toolbar中的填充内容，此处控制高度用来使其中内容上下居中 */
+.x-panel-tbar .x-toolbar .ytb-spacer{
+	height: 30px;
+}
+/* 两种特殊情况的边框颜色改变 */
+/* 没有title的toolbar的特殊处理 */
+.x-panel-tbar-noheader .x-toolbar, .x-panel-mc .x-panel-tbar .x-toolbar {
+    /*border-color:#000000;*/
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0 15px;
+    border: 1px solid #E7E4DC;
+   	/*border-top: 1px solid #E7E4DC;
+	border-bottom: 1px solid #E7E4DC;*/
+	background: #f2f2f2;
+	color: #000;
+}
+.x-panel-body-noheader, .x-panel-mc .x-panel-body {
+    /*border-color:#000000;*/
+}
+.x-panel-tl .x-panel-header {
+    color:#000;
+    height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+}
+.x-panel-tc {
+	/*background-image:url(../images/black/panel/top-bottom.gif);*/
+	background: #f2f2f2;
+}
+.x-panel-tl {
+	/*background-image:url(../images/black/panel/corners-sprite.gif);*/
+    /*border-color:#000000;*/
+    border:none;
+    background: #f2f2f2;
+}
+.x-panel-tr {
+	/*background-image:url(../images/black/panel/corners-sprite.gif);*/
+	background: #f2f2f2;
+}
+
+.x-panel-body-noheader, .x-panel-mc .x-panel-body {
+	border-top: none;
+}
+.x-panel-bc {
+	/*background-image:url(../images/black/panel/top-bottom.gif);*/
+	background: #F2F2F2;
+}
+.x-panel-bl {
+	/*background-image:url(../images/black/panel/corners-sprite.gif);*/
+	background: #F2F2F2;
+}
+.x-panel-br {
+	/*background-image:url(../images/black/panel/corners-sprite.gif);*/
+	background: #F2F2F2;
+}
+.x-panel-nofooter .x-panel-bc, .x-panel-nofooter .x-window-bc {
+	height: auto;
+	font-size: 0;
+	line-height: 0;
+}
+.x-panel-mc {
+    /*background:#363636;*/
+    background: #fff;
+    color:#333;
+    padding-top: 0; /* 覆盖all */
+}
+.x-panel.padding .x-panel-mc{
+	padding: 10px 25px;
+}
+.x-panel-mc .x-panel-body {
+    background:transparent;
+    border: 0 none;
+}
+.x-panel-ml {
+	/*background-image:url(../images/black/panel/left-right.gif);*/
+	background: #fff;
+	padding-left: 0; /* 覆盖all */
+}
+.x-panel-mr {
+	/*background-image:url(../images/black/panel/left-right.gif);*/
+	background: #fff;
+	padding-right: 0; /* 覆盖all */
+}
+
+/* 拖动中的panel的阴影状态 */
+/* Ghosting */
+.x-panel-ghost {
+    background:#82BEB3;
+}
+
+/* 下方区域的边框 */
+.x-panel-ghost ul {
+    border-color:#12bd9b;
+}
+
+.x-grid-panel .x-panel-mc .x-panel-body {
+    /*border:1px solid #000000;*/
+	border: 1px solid #E7E4DC;
+}
+
+/* FormPanel中的一些特殊处理 */
+.x-column .x-panel-body{
+	border: none;
+}
+.x-column.x-panel{
+	box-shadow: none;
+}
+label.x-column{
+	font-family: arial,tahoma;
+	font-size: 12px;
+}
+
+/* Grid */
+
+/* 为了使得表格内部边线和表头对齐，让grid-body整体右移1px */
+.x-grid3-body{
+	margin-left: 1px;
+}
+
+/* 为表身内容添加右侧边框线 */
+.x-grid3-row .x-grid3-col {
+	border-right: 1px solid #cfcfcf;
+	
+	outline: none;
+	
+	/* 取消padding，使得表格内部的边线和上部对齐 */
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.x-grid3-row-over {/* 表内容上悬浮效果 */
+	/*border:1px solid #cfcfcf;*/
+    /*background-image:url(../images/black/grid/row-over.gif);*/
+    background:#fcfcfc;
+}
+.x-grid3-row {
+    color:#000000;
+    border: 1px solid #cfcfcf;
+	border-top: none;
+	border-left: none;
+}
+.x-grid3-header{/* 内部表头背景颜色 */
+	/*background-image:url(../images/black/grid/grid3-hrow.gif);*/
+	background:#ecebea;
+	padding: 0;/*消除悬浮状态时阴影上侧的不和谐因素*/
+}
+.x-grid3-header-pop-inner {
+    border-left:1px solid #000000;
+    background-image:url(../images/black/grid/hd-pop.gif);
+}
+/* 设置表头的行高 */
+.x-grid3-hd-inner{
+	padding: 2px 3px 2px 5px;
+}
+/* 设置 */
+.x-grid3-cell-inner{
+	line-height: 19px;	
+}
+/* 表头悬浮时左右的颜色 */
+td.x-grid3-hd-over, td.sort-desc, td.sort-asc, td.x-grid3-hd-menu-open {
+    border-left:1px solid ##b5b6b9;
+    border-right:1px solid ##b5b6b9;
+}
+/* 表头悬浮显示的颜色 */
+td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-asc .x-grid3-hd-inner, td.x-grid3-hd-menu-open .x-grid3-hd-inner {
+    /*background-image:url(../images/black/grid/grid3-hrow-over.gif);*/
+   	/*background-color:#595959;*/
+   	background:#b5b6b9;
+}
+.x-dd-drag-proxy .x-grid3-hd-inner{/* 拖拽显示颜色 */
+	/*background-image:url(../images/black/grid/grid3-hrow-over.gif);*/
+	background:#b5b6b9;
+}
+.x-grid3-locked td.x-grid3-row-marker, .x-grid3-locked .x-grid3-row-selected td.x-grid3-row-marker{
+    /*background-image:url(../images/black/grid/grid-hrow.gif);*/
+    background:#50d0b7;
+    color:#666666;
+    border-top:1px solid white;
+    border-right:1px solid #000000 !important;
+}
+.x-props-grid .x-grid3-td-name .x-grid3-cell-inner{
+	background-image:url(../images/black/grid/grid3-special-col-bg.gif);
+    color:#eeeeee !important;
+}
+.x-grid3-hd-btn {/* 悬浮时显示下拉的下三角 */
+    background: transparent left center;
+    background-image:url(../images/berry/grid/grid3-hd-btn.gif);
+}
+.x-grid3-body .x-grid3-td-expander {
+    background-image:url(../images/black/grid/grid3-special-col-bg.gif);
+}
+.x-grid3-body .x-grid3-td-checker {
+    /*background-image:url(../images/black/grid/grid3-special-col-bg.gif);*/
+   background: #fff;
+}
+.x-grid3-body .x-grid3-td-numberer {
+    /*background-image:url(../images/black/grid/grid3-special-col-bg.gif);*/
+   background: #fff;
+}
+/* 选中状态下每行的数字序号和选择框 */
+.x-grid3-body .x-grid3-row-selected .x-grid3-td-numberer,
+.x-grid3-body .x-grid3-row-selected .x-grid3-td-checker,
+.x-grid3-body .x-grid3-row-selected .x-grid3-td-expander {
+	/*background-image:url(../images/black/grid/grid3-special-col-sel-bg.gif);*/
+	background: #EDEEEF;
+}
+/* 为grid表头样式 */
+.x-grid3-hd-row td {
+    /*border-left:1px solid #888888;
+    border-right:1px solid #666666;*/
+   line-height: 20px;
+   border-bottom: 1px solid #cfcfcf;
+   border-right: 1px solid #cfcfcf;
+   border-left: none;
+   font-weight: bold;
+}
+.x-grid3-row-selected {/* 表格中行的选中状态 */
+	background: #edeeef!important;/*#eeeef0;*/
+	border-top: none;
+}
+.xg-hmenu-sort-asc .x-menu-item-icon{
+	background-image: url(../images/black/grid/hmenu-asc.gif);
+}
+.xg-hmenu-sort-desc .x-menu-item-icon{
+	background-image: url(../images/black/grid/hmenu-desc.gif);
+}
+
+/* Menu */
+
+.x-menu {/* 菜单的背景颜色 */
+	/*border: 1px solid #000000;*/
+	border:none; /*覆盖默认的日历边框，暂时不知道是否会对日历以外的组件产生影响*/
+	background-color:#393939;
+	/*background-image:url(../images/black/menu/menu.gif);*/
+}
+.x-menu-sep {/* 菜单分界线颜色 */
+    background-color:#4d4d4d;/* 未知 */
+	/*border-bottom:1px solid #272727;*/
+}
+.x-menu-plain {
+	background:#393939 !important;
+}
+.x-menu-item-active {/* 菜单选中状态 */
+	/*background-image:url(../images/black/menu/item-over.gif);*/
+	/*background-color:#3f3f3f;*/
+	/*border:1px solid #222222;*/
+}
+/* 菜单条目颜色 */
+.x-menu a.x-menu-item {
+	/*color:#eeeeee;*/
+}
+/* 选中的菜单条目颜色 */
+.x-menu-item-active a.x-menu-item {
+    /*color: #ffffff;*/
+}
+
+/* Tools */
+.x-tool {
+    background-image:url(../images/berry/panel/tool-sprites.gif);
+    /*background: #12bd9b;*/
+}
+
+/* Buttons */
+
+/* 新添加 覆盖按钮边距按钮 */
+.x-btn{
+	margin: 1px 5px;
+	height: 20px;
+}
+/* 按钮字体	 */
+.x-btn-text{
+	color: #fff !important;
+/*font-weight:bold !important;*/
+}
+.x-btn-left{
+	/*background-image:url(../images/black/button/btn-sprite.gif);*/
+	background: #12bd9b;
+	border-radius: 5px 0 0 5px;
+}
+.x-btn-right{
+	/*background-image:url(../images/black/button/btn-sprite.gif);*/
+	background: #12bd9b;
+	border-radius: 0 5px 5px 0;
+}
+.x-btn-center{
+	/*background-image:url(../images/black/button/btn-sprite.gif);*/
+	background: #12bd9b;
+}
+
+/* 悬浮时btn显示效果 */
+.x-btn:hover .x-btn-left{
+	background: #37c9ac;
+}
+.x-btn:hover .x-btn-right{
+	background: #37c9ac;
+}
+.x-btn:hover .x-btn-center{
+	background: #37c9ac;
+}
+
+/* 点击后btn显示效果 */
+.x-btn.x-btn-click .x-btn-left{
+	background: #049276;
+}
+.x-btn.x-btn-click .x-btn-right{
+	background: #049276;
+}
+.x-btn.x-btn-click .x-btn-center{
+	background: #049276;
+}
+
+/* 不可按按钮的样式 */
+.x-btn.x-item-disabled .x-btn-left{
+	background: #12bd9b;
+}
+.x-btn.x-item-disabled .x-btn-right{
+	background: #12bd9b;
+}
+.x-btn.x-item-disabled .x-btn-center{
+	background: #12bd9b;
+	color: rgba(255,255,255,.5);
+}
+
+.x-btn-menu-arrow-wrap .x-btn-center button {
+    background-image:url(../images/black/button/btn-arrow.gif);
+}
+.x-btn-with-menu  .x-btn-center em {
+    background-image:url(../images/black/toolbar/btn-arrow.gif);
+}
+
+.x-btn-text-icon .x-btn-with-menu .x-btn-center em {
+    background-image:url(../images/black/toolbar/btn-arrow-light.gif);
+}
+
+/* Layout classes */
+
+.x-border-layout-ct {
+    background:#f3f3f3; /* f1f2f4 */
+}
+
+.x-accordion-hd {
+	background-image:url(../images/black/panel/light-hd.gif);
+}
+
+.x-layout-collapsed{
+    background-color:#222222;
+    border-color:#000000;
+}
+.x-layout-collapsed-over{
+	 background-color:#444444;
+}
+
+
+/* qtips */
+/*.x-tip .x-tip-close{
+	background-image: url(../images/black/qtip/close.gif);
+}
+.x-tip .x-tip-tc {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-tl {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-tr {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-bc {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-bl {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-br {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-ml {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-mr {
+	background-image:url(../images/black/qtip/tip-sprite.gif);
+}
+.x-tip .x-tip-header-text {
+    color:#ffffff;
+}*/
+.x-tip .x-tip-body {
+    color:#000;
+}
+/* Toolbars */
+
+.x-toolbar{
+	border-color:#E7E4DC;
+	/*border-width: 1px;*/  /* border不为1将导致toolbars不能单独使用 */
+    /*background:#282828 url(../images/black/toolbar/bg.gif) repeat-x top left;*/
+    background: #f2f2f2;
+}
+.x-toolbar button {
+    color:#eeeef0;
+}
+.x-toolbar .x-btn-menu-arrow-wrap .x-btn-center button {
+    background-image:url(../images/black/toolbar/btn-arrow.gif);
+}
+.x-toolbar .x-btn-text-icon .x-btn-menu-arrow-wrap .x-btn-center button {
+    background-image:url(../images/black/toolbar/btn-arrow.gif);
+}
+/* 下方菜单栏中按钮的背景色 */
+.x-toolbar .x-btn-over .x-btn-left{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: none;
+}
+.x-toolbar .x-btn-over .x-btn-right{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: none;
+}
+.x-toolbar .x-btn-over .x-btn-center{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: none;
+}
+
+/* 下方菜单栏中按钮的背景色  BERRY 转变为纯色按钮 */
+.x-toolbar .x-btn-over.berry .x-btn-left{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #12bd9b;
+	border-radius: 5px 0 0 5px;
+}
+.x-toolbar .x-btn-over.berry .x-btn-right{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #12bd9b;
+	border-radius: 0 5px 5px 0;
+}
+.x-toolbar .x-btn-over.berry .x-btn-center{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #12bd9b;
+}
+
+.x-toolbar .x-btn-over button {
+    color:#ffffff;
+}
+
+/* 下方菜单栏中按钮hover状态的背景色 berry  激活状态颜色定制 */
+.x-toolbar .x-btn.berry:hover .x-btn-left{
+	background: #37c9ac;
+}
+.x-toolbar .x-btn.berry:hover .x-btn-right{
+	background: #37c9ac;
+}
+.x-toolbar .x-btn.berry:hover .x-btn-center{
+	background: #37c9ac;
+}
+
+/* 下方菜单栏中按钮active状态的背景色 BERRY */
+.x-toolbar .x-btn.x-btn-click.berry .x-btn-left, .x-toolbar .x-btn-pressed .x-btn-left, .x-toolbar .x-btn-menu-active .x-btn-left{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #049276;
+}
+.x-toolbar .x-btn.x-btn-click.berry .x-btn-right, .x-toolbar .x-btn-pressed .x-btn-right, .x-toolbar .x-btn-menu-active .x-btn-right{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #049276;
+}
+.x-toolbar .x-btn.x-btn-click.berry .x-btn-center, .x-toolbar .x-btn-pressed .x-btn-center, .x-toolbar .x-btn-menu-active .x-btn-center{
+	/*background-image:url(../images/black/toolbar/tb-btn-sprite.gif);*/
+	background: #049276;
+}
+
+/* 分页部分左右按钮的分割图案 */
+.x-toolbar .ytb-sep {
+	background-image: url(../images/black/grid/grid-split.gif);
+	display: none;
+}
+.x-paging-info {
+    color:#909090;
+}
+
+/* 重新定义了toolbar下的各种部件的字体大小 */
+.x-toolbar td, .x-toolbar span, .x-toolbar input, .x-toolbar div, .x-toolbar select, .x-toolbar label{
+	font:inherit;
+	font-size: 12px;
+	font-family: arial;
+	font-style: normal;
+}
+.x-panel-tbar .x-toolbar span, .x-panel-tbar .x-toolbar label{
+	font-size: 14px;
+	line-height: 30px;
+}
+/* sub toolbar pics */
+.x-tbar-page-first{background-image:url(../images/default/grid/page-first-grey.png)!important;}
+.x-tbar-loading{background-image:url(../images/default/grid/refresh-grey.png)!important;}
+.x-tbar-page-last{background-image:url(../images/default/grid/page-last-grey.png)!important;}
+.x-tbar-page-next{background-image:url(../images/default/grid/page-next-grey.png)!important;}
+.x-tbar-page-prev{background-image:url(../images/default/grid/page-prev-grey.png)!important;}
+/*.x-item-disabled .x-tbar-loading{background-image:url(../images/default/grid/loading.gif)!important;}*/
+.x-item-disabled .x-tbar-page-first{background-image:url(../images/default/grid/page-first-grey-dis.png)!important;}
+.x-item-disabled .x-tbar-page-last{background-image:url(../images/default/grid/page-last-grey-dis.png)!important;}
+.x-item-disabled .x-tbar-page-next{background-image:url(../images/default/grid/page-next-grey-dis.png)!important;}
+.x-item-disabled .x-tbar-page-prev{background-image:url(../images/default/grid/page-prev-grey-dis.png)!important;}
+
+/* Form */
+
+/* 尝试解决IE下input框高度异常的问题 */
+.x-form-text{
+	height: 18px;
+	/* 输入框输入内容过多时显示'...' */
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+/* 开关按钮背景  */
+.ext-safari .x-form-field-wrap .x-form-trigger {
+	/*right: 1px;*/
+}
+.x-form-field-wrap .x-form-trigger{
+    /*border-bottom: none; 覆盖ext-all*/
+    right: 1px;
+}
+.x-form-field-wrap .x-form-date-trigger{
+    background-image: url(../images/berry/form/date-trigger.gif);
+    border-bottom: none;
+}
+.x-form-field-wrap .x-form-clear-trigger{
+    background-image: url(../images/black/form/clear-trigger.gif);
+}
+.x-form-field-wrap .x-form-search-trigger{
+    background-image: url(../images/black/form/search-trigger.gif);
+}
+/* input框 */
+.x-form-text, textarea.x-form-field{
+    border: 1px solid #bdc0ce;
+    background: #fff;
+    outline: none;
+    box-sizing: content-box;
+}
+.x-form-select-one {
+    border: 1px solid #bdc0ce;
+}
+.x-item-disabled .x-form-trigger-over{
+    border-bottom: 1px solid #bdc0ce;
+}
+.x-item-disabled .x-form-trigger-click{
+    border-bottom: 1px solid #bdc0ce;
+}
+.x-form fieldset {
+    border:1px solid #bdc0ce;
+}
+.x-trigger-wrap-focus .x-form-trigger{
+    /*border-bottom: 1px solid #0e0e0e;*/
+}
+.x-form-focus, textarea.x-form-focus{/* 选中状态边框颜色  */
+	border: 1px solid #12bd9b;
+}
+
+/* 保证表单的显示特性 */
+.x-form-item{
+	padding: 4px;
+	outline:none;
+}
+
+/* 顶部toolbars中input的设置 */
+.ext-strict .x-small-editor .x-form-text {
+	outline: none;
+	display: inline-block;
+}
+
+.x-abs-layout-item{
+	font-family: "arial";
+	font-size: 12px;
+}
+
+/* Tabs */
+
+/* 新增 使tab框增加阴影 */
+.x-tab-panel{
+	/*box-shadow: 3px 3px #aaa;*/
+}
+
+.x-tab-panel-header, .x-tab-panel-footer {
+	background: #12bd9b;/*363636;*/
+	border-color:#12bd9b;
+}
+
+
+.x-tab-panel-header {
+	border-color:#12bd9b;
+}
+
+.x-tab-panel-footer {
+	border-color:#12bd9b;
+}
+
+
+/* 覆盖exr-all.css 选项卡基础样式  */
+ul.x-tab-strip li{
+	margin: 4px 5px 4px 10px;
+}
+
+/* tab头背景色 */
+ul.x-tab-strip-top{
+	/*background:#353535 url(../images/black/tabs/tab-strip-bg.gif) repeat-x left top;*/
+	background: #12bd9b;
+	border-color:#12bd9b;
+}
+
+ul.x-tab-strip-bottom{
+	/*background-image:url(../images/black/tabs/tab-strip-btm-bg.gif);*/
+	border-color:#12bd9b;
+}
+
+/* 选项卡三种状态时 文字颜色的变化 */
+.x-tab-strip span.x-tab-strip-text {/*选项卡基本状态*/
+	color:#f2f2f2;
+	height: 17px;
+	line-height: 17px;
+	font-size: 14px;
+}
+.x-tab-strip-over span.x-tab-strip-text {
+	color:#ffffff;
+}
+
+.x-tab-strip-active span.x-tab-strip-text {
+	color:#ffffff;
+	font-weight: normal;
+	font-weight: bold\9;
+}
+
+/* 选项卡的右左中三部分  left占全部面积，只显示左侧  right含right及中间，只显示右侧  中部正常 */
+.x-tab-strip-top .x-tab-right {
+	/*background-image:url(../images/black/tabs/tabs-sprite.gif);*/
+	background: none;
+}
+
+.x-tab-strip-top .x-tab-left {
+	/*background-image:url(../images/black/tabs/tabs-sprite.gif);*/
+	background: none;
+}
+.x-tab-strip-top .x-tab-strip-inner {
+	/*background-image:url(../images/black/tabs/tabs-sprite.gif);*/
+	background: none;
+}
+
+/* 被选中的选项卡的样式 */
+.x-tab-strip-active .x-tab-right{
+	background: rgba(0,0,0,.2);
+	background: rgba(255,255,255,.25);
+	background: none\9;
+	border-radius: 3px;
+}
+
+
+/* 选项卡剩余部分，暂未研究 */
+.x-tab-strip-bottom .x-tab-right {
+	background-image:url(../images/black/tabs/tab-btm-inactive-right-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-left {
+	background-image:url(../images/black/tabs/tab-btm-inactive-left-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-strip-active .x-tab-right {
+	background-image:url(../images/black/tabs/tab-btm-right-bg.gif);
+}
+
+.x-tab-strip-bottom .x-tab-strip-active .x-tab-left {
+	background-image:url(../images/black/tabs/tab-btm-left-bg.gif);
+}
+
+.x-tab-strip .x-tab-strip-closable a.x-tab-strip-close {
+	background-image:url(../images/black/tabs/tab-close.gif);
+}
+.x-tab-strip .x-tab-strip-closable a.x-tab-strip-close:hover{
+	background-image:url(../images/black/tabs/tab-close.gif);
+}
+
+.x-tab-panel-body {
+    border-color:#cfcfcf;
+    background:#eeeeee;
+}
+.x-tab-panel-bbar .x-toolbar {
+    border-color: #12bd9b;
+}
+
+.x-tab-panel-tbar .x-toolbar {
+    border-color: #12bd9b;
+}
+
+.x-tab-panel-header-plain .x-tab-strip-spacer {
+    border-color:#12bd9b;
+    background: #353535;
+}
+
+.x-tab-scroller-left {
+    background-image: url(../images/black/tabs/scroll-left.gif);
+    border-color:#12bd9b;
+}
+.x-tab-scroller-right {
+    background-image: url(../images/black/tabs/scroll-right.gif);
+    border-color:#12bd9b;
+}
+
+/* Window */
+
+.x-window-proxy {
+    background:#363636;
+    border-color:#000000;
+}
+
+.x-window-tl .x-window-header {
+    color:#eeeef0;
+}
+
+/* 弹窗的标题栏背景 */
+/* tl占据左中右三部分，中右位于下层；tr占据中右两层，中部位于下层；tc位于中部，全部显示 */
+.x-window-tc {
+	/*background-image:url(../images/black/window/top-bottom.png);*/
+	background: #12bd9b;
+}
+.x-window-tl {
+	/*background-image:url(../images/black/window/left-corners.png);*/
+	background: #12bd9b;
+	border-radius: 3px 3px 0 0;
+}
+.x-window-tr {
+	/*background-image:url(../images/black/window/right-corners.png);*/
+	background: #12bd9b;
+	border-radius: 0 3px 0 0;
+}
+.x-window-bc {
+	/*background-image:url(../images/black/window/top-bottom.png);*/
+	background: #fff;
+}
+.x-window-bl {
+	/*background-image:url(../images/black/window/left-corners.png);*/
+	background: #fff;
+}
+.x-window-br {
+	/*background-image:url(../images/black/window/right-corners.png);*/
+	background: #fff;
+}
+
+/* 弹框部分message区域内信息背景 此部分同 */
+.x-window-mc {
+    border:none;
+    background:none;
+    color: #eeeeee;
+    /*padding: 1px;*/
+}
+.x-window-ml {
+	/*background-image:url(../images/black/window/left-right.png);*/
+	background: #fff;
+	padding-left: 0; /* 覆盖all */
+}
+.x-window-mr {
+	/*background-image:url(../images/black/window/left-right.png);*/
+	background: #fff;
+	padding-right: 0; /* 覆盖all */
+}
+
+.x-panel-ghost .x-window-tl {
+    border-color:#12bd9b;
+}
+.x-panel-collapsed .x-window-tl {
+    border-color:#000000;
+}
+
+.x-window-plain .x-window-mc {
+    color: #eeeeee;
+    background: #222222;
+    /*border-left:1px solid #111111;
+    border-top:1px solid #111111;
+    border-bottom:1px solid #222222;
+    border-right:1px solid #222222;*/
+  	border:none;
+}
+
+.x-window-plain .x-window-body {
+    /*border-left:1px solid #555555;
+    border-top:1px solid #555555;
+    border-bottom:1px solid #333333;
+    border-right:1px solid #333333;*/
+    border: none;
+    background:transparent !important;
+}
+
+body.x-body-masked .x-window-mc, body.x-body-masked .x-window-plain .x-window-mc {
+    /*color: #eeeeee;*/
+    /*background-color: #1a1a1a;*/
+   color: #333;
+   background-color: #fff;
+}
+
+/* Date Picker */
+.x-date-picker {
+    border: 1px solid #cfcfcf !important;
+    background:#ffffff;
+}
+
+/* 日历组件顶部文字颜色 */
+.x-date-middle .x-btn-text{
+	color: #000000!important;
+}
+
+/*datepicker 标题栏背景色*/
+.x-date-middle,.x-date-left,.x-date-right {
+	/*background-image: url(../images/black/shared/hd-sprite.gif);*/
+	background: #F2F2F2;
+}
+.x-date-middle .x-btn-with-menu  .x-btn-center em {
+    background-image:url(../images/black/toolbar/btn-arrow.gif);
+}
+.x-date-right a { /*日历组件的左右箭头按钮*/
+    background-image: url(../images/berry/shared/right-btn.png);
+}
+.x-date-left a{
+	background-image: url(../images/berry/shared/left-btn.png);
+}
+/* 第二行 写有星期的标题 辅色*/
+.x-date-inner th {
+    /*background-image:url(../images/black/shared/glass-bg.gif);*/
+	/*border-bottom: 1px solid #000000;*/
+	color:#fff;
+	background: #7e7f81;
+	opacity: .8;
+	border-bottom: 1px solid #7e7f81;
+}
+/* 被选中的日期单元格 */
+.x-date-inner .x-date-selected a{
+	/*background-image:url(../images/black/shared/glass-bg.gif);*/
+	/*border:1px solid #000000;*/
+	background: #12bd9b;
+    color:#eeeef0;
+}
+.x-date-bottom {
+    /*border-top: 1px solid #000000;
+    background-image:url(../images/black/shared/glass-bg.gif);*/
+   border-top: 1px solid #cfcfcf;
+   background: #F2F2F2;
+}
+
+/* ----日历插件下部按钮特殊处理---- */
+/* 普通状态下的按钮 */
+.x-date-bottom .x-btn-left {
+	background: #fcfcfc;
+	border: 1px solid #cfcfcf;
+	border-right: none;
+}
+.x-date-bottom .x-btn-center {
+	background: #fcfcfc;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #cfcfcf;
+	color: #000;
+}
+.x-date-bottom .x-btn-right {
+	background: #fcfcfc;
+	border: 1px solid #cfcfcf;
+	border-left: none;
+}
+/* 悬浮状态下按钮的特殊处理 */
+.x-date-bottom .x-btn:hover .x-btn-left {
+	background: #fff;
+	border: 1px solid #cfcfcf;
+	border-right: none;
+}
+.x-date-bottom .x-btn:hover .x-btn-center {
+	background: #fff;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #cfcfcf;
+	color: #000;
+}
+.x-date-bottom .x-btn:hover .x-btn-right {
+	background: #fff;
+	border: 1px solid #cfcfcf;
+	border-left: none;
+}
+/* 按下状态时按钮的特殊处理 */
+.x-date-bottom .x-btn.x-btn-click .x-btn-left {
+	background: #f2f2f2;
+	border: 1px solid #cfcfcf;
+	border-right: none;
+}
+.x-date-bottom .x-btn.x-btn-click .x-btn-center {
+	background: #f2f2f2;
+	border-top: 1px solid #cfcfcf;
+	border-bottom: 1px solid #cfcfcf;
+	color: #000;
+}
+.x-date-bottom .x-btn.x-btn-click .x-btn-right {
+	background: #f2f2f2;
+	border: 1px solid #cfcfcf;
+	border-left: none;
+}
+/* 按钮上文字颜色的改变 */
+.x-date-bottom .x-btn-center .x-btn-text{
+	color: #000!important;
+}
+
+/* 日历组件的最外侧边框 */
+.x-date-mp{
+	border: 1px solid #cfcfcf;
+}
+/* 下拉选择日期底部背景色 */
+.x-date-mp-btns {
+	/*background-image:url(../images/black/shared/glass-bg.gif);*/
+	background: #F2F2F2;
+}
+/* 下拉选择日期底部上侧边界线 */
+.x-date-mp-btns td{
+	border-top: 1px solid #cfcfcf;
+}
+/* 下拉选择日期中间分界线 */
+td.x-date-mp-sep{
+	border-right: 1px solid #cfcfcf;
+}
+td.x-date-mp-sel a {
+	/*background-image:url(../images/black/shared/glass-bg.gif);*/
+	/*border:1px solid #000000;*/
+	background: #12bd9b;
+	color: #eeeef0 !important;
+}
+.x-date-mp-ybtn a {
+    background-image:url(../images/black/panel/tool-sprites.gif);
+}
+/* 下拉选择日期底部按钮 */
+.x-date-mp-btns button {
+	/*background-image:url(../images/black/shared/glass-bg.gif);*/
+	background: #fcfcfc;
+	border-radius: 3px;
+	border-color: #cfcfcf;
+	color: #000000;
+}
+.x-date-inner a{
+    color:#000000;
+}
+/* 悬浮状态下的单元格颜色 */
+.x-date-inner a:hover, .x-date-inner .x-date-disabled a:hover{
+    color:#eeeef0;
+    background: #37c9ac;
+}
+td.x-date-mp-month a,td.x-date-mp-year a {
+	color:#000000;
+}
+/* 下拉选择日期时悬浮颜色 */
+td.x-date-mp-month a:hover,td.x-date-mp-year a:hover {
+	color:#eeeef0;
+	/*background: #353535;*/
+	background: #37c9ac;
+}
+
+/* misc */
+.x-html-editor-wrap {
+    border-color:#000000;
+}
+
+/* Borders go last for specificity */
+.x-panel-noborder .x-panel-body-noborder {
+    border-width:0;
+}
+
+.x-panel-noborder .x-panel-header-noborder {
+    border-width:0;
+    border-bottom:1px solid #000000;
+}
+
+.x-panel-noborder .x-panel-tbar-noborder .x-toolbar {
+    border-width:0;
+    border-bottom:1px solid #000000;
+}
+
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar {
+    border-width:0;
+    border-top:1px solid #000000;
+}
+
+.x-window-noborder .x-window-mc {
+    border-width:0;
+}
+.x-window-plain .x-window-body-noborder {
+    border-width:0;
+}
+
+.x-tab-panel-noborder .x-tab-panel-body-noborder {
+	border-width:0;
+}
+
+.x-tab-panel-noborder .x-tab-panel-header-noborder {
+	border-top-width:0;
+	border-left-width:0;
+	border-right-width:0;
+}
+
+.x-tab-panel-noborder .x-tab-panel-footer-noborder {
+	border-bottom-width:0;
+	border-left-width:0;
+	border-right-width:0;
+}
+.x-tab-panel-bbar-noborder .x-toolbar {
+    border-width:0;
+    border-top:1px solid #000000;
+}
+
+.x-tab-panel-tbar-noborder .x-toolbar {
+    border-width:0;
+    border-bottom:1px solid #000000;
+}

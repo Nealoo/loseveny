@@ -1,0 +1,115 @@
+{
+	"success":true,
+	"message":"messageeeee!",
+	"home":{"tar":"justest.html"},
+	"menuContent":[
+		{
+			"name":"Resource Management",
+			"subContent":[
+				{
+					"name":"App Management",
+					"mid":"1001",
+					"tar":"modules/appmanage/view/app_manage.jsp"
+				},
+				{
+					"name":"Attribute Management",
+					"mid":"1002",
+					"tar":"modules/attributemanage/view/attribute_manage_list_view.jsp"
+				},
+				{
+					"name":"Plan Management",
+					"mid":"1003",
+					"tar":"modules/offermanage/view/offer_manage_list_view.jsp"
+				},
+				{
+					"name":"Device Management",
+					"mid":"1004",
+					"tar":"modules/devicemanage/view/device_manage_list_view.jsp"
+				},
+				{
+					"name":"Data Release",
+					"mid":"1005",
+					"tar":"modules/appdatarelease/view/app_data_release_list_view.jsp"
+				},
+				{
+					"name":"Data Relation",
+					"mid":"1006",
+					"tar":"modules/appdatarelation/view/app_data_relation_list_view.jsp"
+				},
+				/*{
+					"name":"Public Image old",
+					"mid":"1007",
+					"tar":"modules/pubImg/pubImg.jsp"
+				},*/
+				{
+					"name":"Public Image",
+					"mid":"1008",
+					"tar":"modules/apppubimgmanage/view/pubimg_manage_view.jsp"
+				},
+				{
+					"name":"Data Sync Management",
+					"mid":"1999",
+					//"tar":"/mapp/modules/dataSync/dataSync.jsp"
+			        "tar":"/mapp/modules/datasyncmanage/view/data_sync_list_view.jsp"
+					
+				}
+			]
+		},
+		{
+			"name":"Authority Management",
+			"subContent":[
+				{
+					"name":"Business Hall Management",
+					"mid":"2001",
+					"tar":"modules/businesshallmanage/businessHallManage.jsp"
+				},
+				{
+					"name":"Staff Management",
+					"mid":"2002",
+					"tar":"modules/user/index.jsp"
+				},{
+					"name":"Pad Management",
+					"mid":"2003",
+					"tar":"modules/parametermanage/padinfo/padInfoManage.jsp"
+				},{
+					"name":"Screen Trace",
+					"mid":"2004",
+					"tar":"modules/largescreen/ls.jsp"
+				}				
+			]
+		},
+		{
+			"name":"System Management",
+			"subContent":
+			[
+				{
+					"name":"Dictionary Management",
+					"mid":"4001",
+					"tar":"/mapp/modules/appsysmanage/view/app_param_manage.jsp"
+				},
+				{
+					"name":"System Configuration",
+					"mid":"4002",
+					"tar":"modules/system/view/system_param_list_view.jsp"
+				}/*,
+				{
+					"name":"Data Sync Field Management",
+					"mid":"4004",
+					"tar":"/mapp/modules/dataSyncField/columnField.jsp"
+				},{
+					"name":"App Param Management",
+					"mid":"4005",
+					"tar":"/mapp/modules/appsysmanage/view/app_param_manage.jsp"
+				},{
+					"name":"Enumerate Management",
+					"mid":"4006",
+					"tar":"/mapp/modules/enumeratemanage/view/enumeratemanage_list_view.jsp"
+				},{ //重构的字典管理界面
+					"name":"Dictionary Management",
+					"mid":"4007",
+					"tar":"/mapp/modules/dicmanagement/view/dic_manage.jsp"
+				}*/
+			]
+		}
+	]
+}

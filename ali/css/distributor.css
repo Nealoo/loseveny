@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/* 分销商主要复用供应商样式，做少量覆盖 */
+
+/* 第一屏大图样式 */
+.tsection1{
+	background: url(../img/dis-s1.jpg) center no-repeat;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=Enabled, sizingMethod=scale , src=img/dis-s1.jpg)\0;
+}
+.tsection1 .bottom-content .bottom-btn{
+	background-color: #62beb9;
+}
+/* 以下样式可以应付流程变为4步之后的改变 */
+.tsection1 .bottom-content .tab-content.c2 li{
+	display: inline-block;
+	width: 220px;
+	vertical-align: top;
+	margin-top: 30px;
+	padding-right: 30px;
+}
+.tsection1 .bottom-content .tab-content.c2 li span{
+	height: 53px;
+	line-height: 30px;
+	font-size: 24px;
+}
+.tsection1 .bottom-content .step .four{
+	display: none;
+}
+.tsection1 .bottom-content .step4 .four{
+	display: inline-block;
+}
+.tsection1 .bottom-content .step4 li.one{
+	background: url(../img/num-mid-01.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step4 li.two{
+	background: url(../img/num-mid-02.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step4 li.three{
+	background: url(../img/num-mid-03.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step4 li.four{
+	background: url(../img/num-mid-04.png) bottom left no-repeat;
+}
+.tsection1 .bottom-content .step4{
+	width: 900px;
+	font-size: 80px;
+}
+.tsection1 .bottom-content .step4 li{
+	display: inline-block;
+	width: 200px;
+	height: 93px;
+	line-height: 120px;
+}
+
+/* 独特部分中间的佣金结算条 */
+.tsection3{
+	width: 100%;
+	height: 360px;
+	background-color: #62beb9;
+}
+.tsection3 .content{
+	width: 1180px;
+	margin: 0 auto;
+	padding: 60px 0;
+}
+.tsection3 .title{
+	color: #fff;
+	font-size: 30px;
+}
+.tsection3 .content .flow{
+	margin-top: 40px;
+}
+/* 问答区域 */
+.tsection2 .qa li .a.m{
+	display: inline-block;
+	padding-left: 30px;
+}
