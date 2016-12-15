@@ -1,16 +1,58 @@
 /* Neal  2016-12-06 */
 
 .section-1{
-    background-color: #008ed6;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+    
+    
+    background: linear-gradient(90deg, #dd00f3, #6a266f, #e8961d, #819051, #008ed6, #3d5998, #843d3c, #00ccd6);
+    background-size: 2000% 100%;
+    
+    -webkit-animation: rainbow 100s ease infinite;
+    -z-animation: rainbow 100s ease infinite;
+    -o-animation: rainbow 100s ease infinite;
+    animation: rainbow 100s ease infinite;
+    
+    @at-root{
+        @-webkit-keyframes rainbow {
+            0%{background-position:0%}
+            50%{background-position:100%}
+            100%{background-position:0%}
+        }
+        @-moz-keyframes rainbow {
+            0%{background-position:0%}
+            50%{background-position:100%}
+            100%{background-position:0%}
+        }
+        @-o-keyframes rainbow {
+            0%{background-position:0%}
+            50%{background-position:100%}
+            100%{background-position:0%}
+        }
+        @keyframes rainbow { 
+            0%{background-position:0%}
+            50%{background-position:100%}
+            100%{background-position:0%}
+        }
     
     .inner-container{
+        display: table-cell;
+        width: 100%;
         color: #fff;
         padding: 12% 0 10% 0;
-        background: -webkit-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
-        background: -moz-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
-        background: -o-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
-        background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(30, 30, 30, 0.5)), to(rgba(30, 30, 30, 0)));
-        background: linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+//      background: -webkit-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+//      background: -moz-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+//      background: -o-linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);
+//      background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(30, 30, 30, 0.5)), to(rgba(30, 30, 30, 0)));
+//      background: linear-gradient(rgba(30, 30, 30, 0.5) 0%, rgba(30, 30, 30, 0) 100%);//#00ccd6
+        }
+        
+        .text-container{
+            margin-top: 40px;
+            font-size: 20px;
+        }
     }
 }
 
@@ -18,5 +60,8 @@
 	transition: box-shadow 0.5s;
     box-shadow: 5px 0px 16px rgba(0,0,0, .2);
 }
+
+
+
 
 

@@ -1,11 +1,39 @@
 
 
-
+body{
+    background: #f5f5f5;
+}
 .navbar{
+    padding: 40px 180px;
     background-color: rgba(0,0,0,0);
+    transition: all 1s;
     
     a{
         color: #fff;
+        transition: all 0.5s;
+        
+        &:hover{
+           
+            color: #9a9a9a;
+        }
+    }
+    
+    li{
+        a{
+            &:hover{
+                background-color: rgba(0,0,0,0);
+            }
+        }
+    }
+    
+    &.move{
+        background-color: #102335;
+        padding: 0 20px;
+        
+        .container-fluid{
+            padding: 0 20px;
+            transition: all 1s;
+        }
     }
 }
 .k-nav-title{
@@ -49,5 +77,18 @@
     100% {
         opacity: 1;
         -webkit-transform: translateY(0%);
+    }
+}
+
+.top-arrow{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0;
+    transition: opacity 1s;
+    
+    span{
+        font-size: 30px;
+        
     }
 }
