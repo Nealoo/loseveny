@@ -9,8 +9,26 @@ $(function(){
 		$('.section-1').css('height', h>1200?1200:h + 'px');
 	}
 	
+	function setNavbar(){
+		if($(window).innerWidth() < 980){
+			
+			if( !$(window).scrollTop() ){
+				$('.navbar').addClass('smscreen');
+			}else{
+				$('.navbar').removeClass('smscreen');
+			}
+			
+		}else{
+			$('.navbar').removeClass('smscreen');
+		}
+		
+	}
+	
 	//bind the events related to the scroll
 	function whenScroll(){
+		
+		setNavbar();
+		
 		var winTop = $(window).scrollTop();
 		
 		//move the navbar after scroll
@@ -22,6 +40,7 @@ $(function(){
 			$('.top-arrow').css('opacity','0');
 		}
 		
+		// slide in pictures
 		$(".slideanim").each(function(){
 			var pos = $(this).offset().top;
 
@@ -40,6 +59,7 @@ $(function(){
 		
 		$(window).resize(function(){
 			setSection1Height();
+			setNavbar();
 		});
 		
 		//initial the navbar   in case of the scrollTop != 0
@@ -51,6 +71,8 @@ $(function(){
 	$(window).scroll(function() {
 		whenScroll();
 	});
+	
+	// dom events below:
 
 	// animation for go to hash position
 	$(".navbar a, footer a, .top-arrow a").on('click', function(event) {

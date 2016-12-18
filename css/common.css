@@ -1,23 +1,30 @@
 body {
   background: #f5f5f5; }
 
+.main-container {
+  overflow: hidden; }
+
 .navbar {
   padding: 40px 180px;
   background-color: transparent;
   transition: all 1s; }
+  .navbar .navbar-toggle .icon-bar {
+    background-color: #fff; }
   .navbar a {
     color: #fff;
     transition: all 0.5s; }
     .navbar a:hover {
       color: #9a9a9a; }
-  .navbar li a:hover {
+  .navbar .nav a:hover, .navbar .nav a:focus {
     background-color: transparent; }
+  .navbar.smscreen {
+    padding: 0 25px; }
+    .navbar.smscreen .navbar-collapse.in {
+      background: rgba(0, 0, 0, 0.4);
+      transition: background 0.5s; }
   .navbar.move {
     background-color: #102335;
     padding: 0 20px; }
-    .navbar.move .container-fluid {
-      padding: 0 20px;
-      transition: all 1s; }
 
 .k-nav-title {
   margin-left: 10px; }
