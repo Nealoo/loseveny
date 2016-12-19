@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="DetailApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/detail.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +29,7 @@
     </style>
   </head>
   <body id="theTop">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top" role="navigation">
       <div class="container">
 
         <div class="navbar-header">
@@ -52,63 +52,22 @@
     </nav>
     
     <div class="main-container">
-    	<div class="section-1">
+    	<div class="container-fluid top-area" ng-controller="TopAreaController">
+    		<div class="inner-container text-center">
+    			<div class="inner-nav">
+    				<span class="glyphicon glyphicon-chevron-left"></span>
+    				<span class="d-span">work</span>
+    				<span class="glyphicon glyphicon-chevron-right"></span>
+    			</div>
+    			<h1>Reliance Management</h1>
+    			<p></p>
+    			<p></p>
+    		</div>
     		
-    	</div>
+    	</div> <!--/.top-area-->
+    	
+    	<div ui-view></div>
     </div>
-
-    <div class="container-fluid">
-      <div class="page-header">
-        <h1>Design Details <small>this page is still building now</small></h1>
-      </div>
-
-      <div class="page-header">
-        <h2>Project background <small></small></h2>
-      </div>
-
-      <div class="page-header">
-        <h2>UI Design <small></small></h2>
-      </div>
-
-      <div class="row text-center">
-        <div class="col-sm-offset-2 col-sm-4">
-          <img src="img/reliance1.png" alt="" style="margin-bottom: 60px;">
-          <h1>Quick Prototype</h1>
-        </div>
-        <div class="col-sm-4">
-          <img src="img/reliance2.jpg" alt="">
-          <h1>First design</h1>
-        </div>
-      </div>
-
-      <div class="row text-center">
-        <div class="col-sm-offset-2 col-sm-4">
-          <img src="img/reliance3.jpg" alt="">
-          <h1>Second color scheme</h1>
-        </div>
-        <div class="col-sm-4">  
-          <img src="img/reliance4.jpg" alt="">
-          <h1>Login page</h1>
-        </div>
-      </div>
-
-      <div class="page-header">
-        <h2>Functions introduction <small></small></h2>
-      </div>
-
-      <div class="page-header">
-        <h3>Draggable tabs<small></small></h3>
-      </div>
-
-      <div class="page-header">
-        <h3>Related menu<small></small></h3>
-      </div>
-
-      <div class="page-header">
-        <h3>Changing skin schemes<small></small></h3>
-      </div>
-
-    </div> <!--/ main container-fluid-->
 
     <footer class="container-fluid bg-bottom text-center">
       <h2>I am the bottom of this page <a href="#theTop">Back to top</a></h2> 
@@ -117,6 +76,8 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/index.js"></script>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="js/app.js" ></script>
     <script type="text/javascript" src="js/controller.js" ></script>
   </body>

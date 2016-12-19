@@ -2,3 +2,34 @@
      * @DATE 18-12-2016 NZ
      * @FOR PORTFOLIO DETAIL
  */
+
+.top-area{
+    color:  #fff;
+    padding:{
+        top: 135px;
+        bottom: 50px;
+    }
+    background-color: #987654;
+    
+    .inner-container{
+        max-width: 760px;
+        margin: 0 auto;
+        
+        .inner-nav{
+            span{
+                vertical-align: middle;
+            }
+            
+            .glyphicon{
+                cursor: pointer;
+                font-size: 35px;
+                padding: 0 15px;
+                
+                &:hover{
+                    opacity: 0.5;
+                }
+            }
+        }
+        
+    }
+}
