@@ -9,3 +9,4 @@ the to do list for next week.
 - add work experiences introduction
 
 好吧，我错了，我忏悔，今天最后一次干这种事，明天再不提交代码这句话永远留着。
+嗯，被钉在了耻辱柱上，可怕。但是今天做了很多其他的事情。明天，一定，有，变化！
