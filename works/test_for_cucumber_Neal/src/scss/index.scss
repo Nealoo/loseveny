@@ -1,0 +1,119 @@
+@mixin transition($param...) {
+  -webkit-transition:$param;
+   -moz-transition:$param;
+   -ms-transition:$param;
+   -o-transition:$param;
+   transition:$param;
+}
+@mixin transform($param...) {
+  -webkit-transform:$param;
+   -moz-transform:$param;
+   -ms-transform:$param;
+   -o-transform:$param;
+   transform:$param;
+}
+@mixin box-shadow($param...) {
+  -webkit-box-shadow:$param;
+   -moz-box-shadow:$param;
+   -ms-box-shadow:$param;
+   -o-box-shadow:$param;
+   box-shadow:$param;
+}
+@mixin center-block {
+    margin-left:auto;
+    margin-right:auto;
+}
+//@include box-shadow(0 2px 2px rgba(0,0,0,.3),0 3px 3px rgba(0,0,0,.3),0 4px 4px rgba(0,0,0,.3));
+
+/* specific reset */
+body{
+    margin-top:65px;
+}
+
+/* menu area */
+
+
+/* menu area end*/
+
+
+/* picture area */
+.pics-current{
+    width: 100%;
+}
+
+.pics-thumbnail {
+    
+    &:hover>div:after{
+        opacity: 1;
+    }
+    
+    &>div{
+        height: 20vw;
+        padding: 0 2px;
+        overflow: hidden;
+        @include transition(width 1s,transform 1.5s ease);
+        cursor: pointer;
+        
+        &:not(.spec-margin){
+            margin: 0 1px;
+        }
+        
+        &:hover{
+            width: 16%;
+            border: 1px solid #777;
+            @include box-shadow(0 0 40px #fff);
+            @include transform(scale(1.2));
+            z-index: 10;
+        }
+        
+        &:after{
+            content: "";
+            z-index: 1;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0.5;
+            @include transition(opacity 0.5s);
+        }
+        
+        &:hover:after{
+            opacity: 0;
+        }
+        
+        img{
+            width: 400%;
+            position: relative;
+            left: -135%;
+        }
+    }
+    
+}
+
+/* picture area end */
+
+//test css block
+
+.test-sm-block{
+    display:inline-block; width:  100%; height: 148px;border: dashed black 1px;
+}
+
+// /test block end
+
+.k-nav-title{
+    padding-left: 15px;
+}
+
+
+@media (min-width: 768px){
+    .test {
+        display: none;
+    }
+}
+
+
+.test{
+    display: block;
+}
