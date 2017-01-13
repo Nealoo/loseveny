@@ -1,3 +1,7 @@
+// @Author Neal  loseveny@gmail.com
+// @Date 2017-01-12
+// For Cucumber Test
+
 @mixin transition($param...) {
   -webkit-transition:$param;
    -moz-transition:$param;
@@ -18,6 +22,14 @@
    -ms-box-shadow:$param;
    -o-box-shadow:$param;
    box-shadow:$param;
+}
+@mixin margin-lr($param) {
+    margin-left: $param;
+    margin-right: $param;
+}
+@mixin padding-lr($param) {
+    padding-left: $param;
+    padding-right: $param;
 }
 @mixin center-block {
     margin-left:auto;
@@ -43,50 +55,107 @@ body{
 
 .pics-thumbnail {
     
-    &:hover>div:after{
+    //TODO find some new ways to solve the image vibration issue (now in zoom-version.html)
+    // $gap-before = x   $gap-after = y
+    // 7 * 2x + x = 7.66 + 7 * 2y + y
+    
+//  $gap-before: 0.611%;
+//  $gap-after:  0.1%;
+
+    // the half gap between two thumbnails
+    $gap-before: 0.15%;
+    
+    // the length of grid col-sm-1
+    $length-col-1 : 1/12;
+    
+    // the length of grid col-xs-2
+    $length-col-2 : 2/12;
+    
+    &:hover>div .pics-inner:after{
         opacity: 1;
     }
     
+//  &:hover>div.spec-margin{
+//      margin-right: $gap-after;
+//  }
+//  
+//  &:hover>div:not(.spec-margin){
+//      margin: 0 $gap-after;
+//  }
+    
     &>div{
-        height: 20vw;
-        padding: 0 2px;
-        overflow: hidden;
-        @include transition(width 1s,transform 1.5s ease);
+        height: 18vw;
+        @include padding-lr($gap-before);
+        margin-bottom: 10px;
         cursor: pointer;
         
-        &:not(.spec-margin){
-            margin: 0 1px;
-        }
-        
-        &:hover{
-            width: 16%;
-            border: 1px solid #777;
-            @include box-shadow(0 0 40px #fff);
-            @include transform(scale(1.2));
-            z-index: 10;
-        }
-        
-        &:after{
-            content: "";
-            z-index: 1;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            opacity: 0.5;
-            @include transition(opacity 0.5s);
-        }
-        
-        &:hover:after{
-            opacity: 0;
-        }
-        
-        img{
-            width: 400%;
+//      &.spec-margin{
+//          margin-right: $gap-before;
+//      }
+//      
+//      &:not(.spec-margin){
+//          @include margin-lr($gap-before);
+//      }
+
+        .pics-inner{
             position: relative;
-            left: -135%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            @include transition(left 1s, transform 1.5s);  //margin 1s
+            
+            // explanation of this formula
+            // $gap-before * 100% = x * $length-col-1
+            // 0.15% * 100%(length of row) = x * 8.33%(length of col-1)
+            
+            &:after{
+                content: "";
+                z-index: 1;
+                position: absolute;
+                left: $gap-before/$length-col-1;
+                top: 0;
+                width: 100% - ($gap-before/$length-col-1);
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                opacity: 0.5;
+                @include transition(opacity 0.5s);
+            }
+            
+            @media (max-width: 768px){
+                &:after{
+                     left: $gap-before/$length-col-2;
+                     width: 100% - 2*($gap-before/$length-col-2);
+                }
+            }
+            
+            &:hover:after{
+                opacity: 0;
+            }
+            
+            &:hover{
+    //          width: 16%;
+                border: 1px solid #777;
+                @include box-shadow(0 0 40px #fff);
+                @include transform(scale(1.2));
+                z-index: 10;
+            }
+            
+            &.active{
+              left: -135%;
+              z-index: 25;
+              
+              img{
+                  left: 0;
+              }
+            }
+            
+            img{
+                width: 400%;
+                position: relative;
+                left: -135%;
+                @include transition(left 1s);
+            }
         }
     }
     
