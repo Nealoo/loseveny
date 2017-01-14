@@ -89,6 +89,29 @@ $(function(){
 		//EVENT1 when click the vertical pictures
 		$('.pics-inner').click(function(){
 			
+			//TODO ban picture move in the same time  need a better solution
+			if( $('.moving').length > 0 ){
+				return false;
+			}
+			
+			//TODO click current picture need a better interaction
+			if( $(this).data('id') == $('.pics-current').data('id')){
+				// zoom the current pic
+				$(this).addClass('active-current');
+				setTimeout(function(){$('.active-current').removeClass('active-current')},300);
+				
+				// interaction in menu
+				$('.menu-item.current').addClass('click');
+				setTimeout(function(){$('.menu-item.current').removeClass('click')},200);
+				return false;
+			}
+			
+			// interaction with menu
+			var pid = $(this).data('id');
+			$('.menu-id-' + pid).addClass('current').addClass('click')
+			.siblings().removeClass('current');
+			setTimeout(function(){$('.menu-id-' + pid).removeClass('click')},300);
+			
 			// the default delay should be 0, because the animation of class .active should be finished now
 			// but still set 500ms in case of a bug might caused by extremely quick mouse moving operation
 			var movingDelayTime = 500;
@@ -100,9 +123,18 @@ $(function(){
 				movingDelayTime = 1500;
 			}
 			
-			//if($(this))
 			// set class moving as a flag to show which pic is moving now
 			$(this).addClass('moving');
+			
+			// change the info area
+			var pid = $('.pics-inner.moving').data('id');
+			appendTpl($('#tpl-info'), {
+				'firstName': g_data[pid].firstName,
+				'lastName' : g_data[pid].lastName,
+				'info'     : g_data[pid].bio
+			}, $('.tpl-info'));
+			//add animation for info area's title
+			setTimeout(function(){$('.ctext-title-init').removeClass('ctext-title-init');},100);
 			
 			// get the length needed to move
 			// class .pics.moving sometimes will change position(offset.left != left 0) so get its parent
@@ -110,30 +142,38 @@ $(function(){
 			
 	//		$('.moving').removeClass('moving');
 			
+			// wait the first animation: .active
 			setTimeout(function(){
 				$('.pics-inner.active').addClass('active2').css('left',leftMove);
 				
-				// change the main picture
+				var delayTime = window.innerWidth > 768 ? 1000 : 360;
+				
+				// wait animation then change the main picture
 				setTimeout(function(){
 					var innerHtml = $('.pics-inner.active');
 					$('.pics-current').parent().html(innerHtml.html())
 					.find('.pics-img').addClass('pics-current').removeClass('pics-img');
-				},1000);
+					
+				},delayTime);
 				
-				// wait the animation then remove it
+				// wait the animation then restore it
 				setTimeout(function(){
 					
+					// move back the picture
 					$('.pics-inner.active').removeClass('pics-inner active moving active2')
 					.removeAttr('style').addClass('pics-inner');
 					
 				},2000);
+				
+				setTimeout(function(){$('.ctext-content-init').removeClass('ctext-content-init');},100);
+					
 			},movingDelayTime);
 			
 			
 			
 		});
 		
-		//EVENT2 when hover more than 2s on a vertical picture
+		//EVENT2 when hover more than 3s on a vertical picture
 		$('.pics-inner').hover(function(){
 	
 			var hoverItem = $(this);
@@ -154,6 +194,18 @@ $(function(){
 		    setTimeout(function(){
 		    	$('.pics-inner.active:not(.moving)').removeClass('active active-back');
 		    },1500);
+		});
+		
+		//EVENT3 when click the menu
+		$('.menu-item').click(function(){
+			
+			// interaction with pic area
+			var pid = $(this).data('id');
+			if( $('.pics-id-' + pid).length > 0 ){
+				$('.pics-id-' + pid).click();
+			}else{
+				console.log('todo more then 10 items');
+			}
 		});
 	}
 	

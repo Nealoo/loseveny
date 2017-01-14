@@ -1,5 +1,5 @@
-<ul class="list-group">
+<ul class="list-group menu-container">
   {{#each data}}
-  <li class="list-group-item">{{firstName}} {{lastName}}</li>
+  <li class="list-group-item menu-item menu-id-{{id}}" data-id="{{id}}">{{firstName}} {{lastName}}</li>
   {{/each}}
 </ul>

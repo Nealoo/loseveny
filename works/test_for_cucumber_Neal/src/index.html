@@ -42,18 +42,14 @@
       <div class="container-fluid">
       	<div class="row">
       		<div class="hidden-xs col-sm-2 tpl-menu">
-      			<ul class="list-group">
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Cras justo odio</li>
+      			<ul class="list-group menu-container">
+						  <li class="list-group-item menu-item">Cras justo odio</li>
 						</ul>
       		</div>
       		<div class="col-xs-offset-2 col-xs-10 col-sm-offset-0 col-sm-10">
       			<div class="row">
       				<div class="col-xs-6 col-sm-3">
-      					<img class="pics-current" data-id="{{id}}" src="images/01.jpg">
+      					<img class="pics-current" data-id="1" src="images/01.jpg">
       				</div>
       				<div class="col-xs-6 col-sm-9">
       					<div class="row tpl-thumbnail">
@@ -132,9 +128,9 @@
     
     <!-- in file protocol copy tpls from the files -->
     <script id="tpl-menu" type="text/x-handlebars-template">
-    	<ul class="list-group">
+    	<ul class="list-group menu-container">
 			  {{#each data}}
-			  <li class="list-group-item">{{firstName}} {{lastName}}</li>
+			  <li class="list-group-item menu-item menu-id-{{id}}" data-id="{{id}}">{{firstName}} {{lastName}}</li>
 			  {{/each}}
 			</ul>
     </script>
@@ -159,9 +155,10 @@
     </script>
     
     <script id="tpl-info" type="text/x-handlebars-template">
-    	<ul class="list-group">
-			  <li class="list-group-item">{{firstName}} {{lastName}}</li>
-			</ul>
+    	<div class="col-xs-11">
+			  <h1 class="ctext-title ctext-title-init">{{firstName}} {{lastName}}</h1>
+			  <p class="ctext-content ctext-content-init">{{info}}</p>
+			</div>
     </script>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
