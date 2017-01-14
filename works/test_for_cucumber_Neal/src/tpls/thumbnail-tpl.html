@@ -1,0 +1,16 @@
+<div class="pics-thumbnail">
+	{{#each data}}
+	{{#if start}}
+	<div class="pics-container col-xs-offset-1 col-xs-2 col-sm-offset-1 col-sm-1 spec-margin">
+	{{else if ln}}
+	<div class="pics-container col-xs-offset-1 col-xs-2 col-sm-offset-0 col-sm-1 spec-margin">
+	{{else}}
+	<div class="pics-container col-xs-2 col-sm-1">
+	{{/if}}
+
+		<div class="pics-inner pics-id-{{id}}" data-id="{{id}}">
+			<img class="pics-img" data-id="{{id}}" src="{{picture}}">
+		</div>
+	</div>
+	{{/each}}
+</div><!-- /.pics-thumbnail -->
