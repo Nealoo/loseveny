@@ -1,0 +1,19 @@
+{
+    "source": "nico-src",
+    "output": "nico-doc",
+    "theme": "_themes/one",
+    "permalink": "{{directory}}/{{filename}}.html",
+    "writers": [
+        "nico.PostWriter",
+        "nico.FileWriter",
+        "nico.StaticWriter"
+    ],
+	"navigation": [
+        {"title": "Back to home", "link": "index.html"},
+        {"title": "description", "link": "description.html"},
+		{"title": "Manual", "link": "manual.html"},
+        {"title": "About me", "link": "http://kioo.cn/portfolio/"}
+    ],
+	"sitename": "Test for Cucumber",
+	"siteurl": "index.html"
+}

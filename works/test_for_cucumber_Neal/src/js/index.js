@@ -9,8 +9,6 @@ $(function(){
 	 */
 	// transfer data to a object with id index
 	var g_data = {};
-	// store a list of data's index
-	var g_data_keys = [];
 	
 	preprocessData();
 	
@@ -30,13 +28,10 @@ $(function(){
 			i == 5? v.ln    = true:v.ln    = false;
 			
 			g_data[v.id] = v;
-			g_data_keys.push(v.id);
 			
 		});
 		
 		initDom();
-		
-		//g_data_keys = Object.keys(g_data); 
 		
 	}
 	

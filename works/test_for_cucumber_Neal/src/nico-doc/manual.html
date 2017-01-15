@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="nico 0.5.2">
+    <meta name="theme" content="one 0.2">
+    <title>Manual</title>
+    <link rel="stylesheet" href="./static/one.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="brand">
+          <!--<a class="home" href="./">Test for Cucumber</a>-->
+		  <a class="home" href="index.html">Test for Cucumber</a>
+        </div>
+        <div class="menu" role="navigation">
+          <!--<a href="./">Back to home</a>-->
+		  <a href="index.html">Back to home</a>
+          <!--<a href="description.html">description</a>-->
+		  <a href="description.html">description</a>
+          <!--<a href="manual.html">Manual</a>-->
+		  <a href="manual.html">Manual</a>
+          <!--<a href="http://kioo.cn/portfolio/./">About me</a>-->
+		  <a href="http://kioo.cn/portfolio/">About me</a>
+        </div>
+      </div>
+    </div>
+    <div class="document yue">
+<div class="hentry" itemscope itemtype="http://schema.org/Article">
+  <h1 class="entry-title" itemprop="name">Manual</h1>
+  <div class="entry-description" itemprop="description"><p>Detail of this page&#39;s interaction</p></div>
+  <div class="entry-content" itemprop="articleBody"><h2 id="responsive-design">Responsive design</h2><p>This page can automatically adapt the different size of the screen.  </p>
+<h2 id="picture-area">picture area</h2><p>This is the main area in this page. Nearly every functions are in here.<br>Because of the design, there would display up to 10 pictures. More than 10, it will only be listed in the menu.</p>
+<h3 id="click-effect">click effect</h3><ol>
+<li>Click the picture in the picture area, it will play an animation then change the current picture and introduction.  </li>
+<li>The user can only click one picture at the same time.  </li>
+<li>If the user clicks the current picture, the picture will be enlarged.  </li>
+</ol>
+<h3 id="hover-effect">hover effect</h3><ol>
+<li>Hover on the picture in the picture area more than 3s, the picture will extend and show the corresponding name. </li>
+</ol>
+<hr>
+<h2 id="menu-area">menu area</h2><ol>
+<li>This is a less functioned area, because picture&#39;s area can do most of the functions of the menu.  </li>
+<li>However, if there are more than 10 pictures, the user can only use the menu to check them.  </li>
+<li>Click items in the menu is same as click picture in the picture area.  </li>
+<li>If the text is too long, then it will show <code>...</code> in the end of the text.</li>
+</ol>
+<hr>
+<h2 id="introduction-area">introduction area</h2><ol>
+<li>There is a vibration problem when users change the picture, it caused by the different size of those pictures. </li>
+</ol>
+<hr>
+<h2 id="could-be-optimized">could be optimized</h2><p>Every feature needs design, code and test, because of the limited time, there are some features I didn&#39;t implement. But I still want to write my thought about how to solve them here.</p>
+<h3 id="ui">UI</h3><p>If there was a UI designer who can give me some suggestions about the color, this page would look better.</p>
+<h3 id="picture-area">picture area</h3><p>This is an uncomfortable interaction now, which is after clicking an item in the menu, the user needs to wait for 3.5s for the animation. During this period, the user cannot click another item. Because if allow user click the menu during the play of animation, there would be a confusion. <a href="quick-click-version.html">See the effect</a>(please click different pictures quickly, then you can see)<br>There are considerable solutions:</p>
+<blockquote>
+<p>First one<br>This one is relatively easy to do.<br>Make a queue, store all the menu items in the queue, then do them in turn after the previous animation.  </p>
+<p>Second one<br>This one will be much complex<br>Add a new CSS class <code>.stop</code>, after clicking a new menu item, add <code>.stop</code> to the current moving picture, let it disappeared and move back.</p>
+</blockquote>
+</div>
+
+  <div class="entry-meta">
+    <time class="updated" datetime="2017-01-15T05:00:00.000Z" itemprop="dateModified">Sunday, Jan 15th, 2017</time>
+  </div>
+</div>
+</div>
+    <div class="footer">
+      <p class="copyright">powered by <a href="http://lab.lepture.com/nico/">nico</a> 0.5.2</p>
+    </div>
+    <script src="./static/one.js"></script>
+  </body>
+</html>
