@@ -26,6 +26,7 @@ $(function(){
 			// add flag for handlebars about picture's position
 			i == 0? v.start = true:v.start = false;
 			i == 5? v.ln    = true:v.ln    = false;
+			i >  9? v.ten   = true:v.ten   = false;
 			
 			g_data[v.id] = v;
 			
@@ -47,6 +48,23 @@ $(function(){
 		appendTpl($('#tpl-menu'), {'data': g_data }, $('.tpl-menu'));
 		// get menu from data.js then generate picture zone
 		appendTpl($('#tpl-thumbnail'), {'data': g_data }, $('.tpl-thumbnail'));
+		
+		// initial the page  show the info of the first picture
+		var pid = $('.menu-container').find('.menu-item:eq(0)').addClass('current').data('id');
+		$('.pics-current').data('id', pid);
+		$('.pics-current').attr('src',g_data[pid].picture);
+		
+		// generate the info area
+		appendTpl($('#tpl-info'), {
+				'firstName': g_data[pid].firstName,
+				'lastName' : g_data[pid].lastName,
+				'info'     : g_data[pid].bio
+			}, $('.tpl-info'));
+		//add animation for info area's title
+		setTimeout(function(){
+			$('.ctext-title-init').removeClass('ctext-title-init');
+			$('.ctext-content-init').removeClass('ctext-content-init');
+		},100);
 		
 		bindEvents();
 		
@@ -177,6 +195,8 @@ $(function(){
 		    	
 		    	if( !$('.hoverItem').hasClass('moving') ){
 		    		hoverItem.addClass('active');
+		    		$('.p-first').html(g_data[hoverItem.data('id')].firstName);
+		    		$('.p-last').html(g_data[hoverItem.data('id')].lastName);
 		    		$('.pics-name').addClass('active');
 		    	}
 		        
@@ -194,12 +214,30 @@ $(function(){
 		//EVENT3 when click the menu
 		$('.menu-item').click(function(){
 			
+			if( $('.menu-top .glyphicon').hasClass('back') ){
+				console.log('has');
+				$('.menu-xs .menu-top').click();
+			}
+			
 			// interaction with pic area
 			var pid = $(this).data('id');
-			if( $('.pics-id-' + pid).length > 0 ){
-				$('.pics-id-' + pid).click();
+			$('.pics-id-' + pid).click();
+//			if( $('.pics-id-' + pid).length > 0 ){
+//				$('.pics-id-' + pid).click();
+//			}else{
+//				console.log('todo more then 10 items');
+//			}
+		});
+		
+		// EVENT4 When the > button of Mobile menu clicked
+		$('.menu-xs .menu-top').click(function(){
+			if( $('.menu-top .glyphicon').hasClass('back') ){
+				$('.menu-xs .menu-container').removeClass('open2');
+				$('.menu-top .glyphicon').removeClass('back');
+				setTimeout(function(){$('.menu-xs .menu-container').removeClass('open1');},1000);
 			}else{
-				console.log('todo more then 10 items');
+				$('.menu-xs .menu-container').addClass('open1 open2');
+				$('.menu-top .glyphicon').addClass('back');
 			}
 		});
 	}

@@ -7,8 +7,11 @@
 	{{else}}
 	<div class="pics-container col-xs-2 col-sm-1">
 	{{/if}}
-
+		{{#if ten}}
+		<div class="pics-inner ten pics-id-{{id}}" data-id="{{id}}">
+		{{else}}
 		<div class="pics-inner pics-id-{{id}}" data-id="{{id}}">
+		{{/if}}
 			<img class="pics-img" data-id="{{id}}" src="{{picture}}">
 		</div>
 	</div>

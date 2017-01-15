@@ -6,6 +6,9 @@ Detail of this page's interaction
 
 ----------------
 
+## Recommended browser
+Because this page have used some new CSS features, try to use `Chrome 55+` to get the best PC experience and Mobile simulation results.  
+
 ##  Responsive design
 This page can automatically adapt the different size of the screen.  
 
@@ -26,6 +29,7 @@ Because of the design, there would display up to 10 pictures. More than 10, it w
 1. However, if there are more than 10 pictures, the user can only use the menu to check them.  
 1. Click items in the menu is same as click picture in the picture area.  
 1. If the text is too long, then it will show `...` in the end of the text.
+1. In the mobile device or any devices whose screen width less than `768px`, the left menu will add a `>` button, which can extend the menu.
 ***
 ## introduction area
 1. There is a vibration problem when users change the picture, it caused by the different size of those pictures. 

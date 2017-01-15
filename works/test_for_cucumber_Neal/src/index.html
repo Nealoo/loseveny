@@ -42,93 +42,40 @@
       <div class="container-fluid">
       	<div class="row">
       		<div class="hidden-xs col-sm-2 tpl-menu">
-      			<ul class="list-group menu-container">
-						  <li class="list-group-item menu-item">Cras justo odio</li>
-						</ul>
+      			
       		</div>
-      		<div class="col-xs-offset-2 col-xs-10 col-sm-offset-0 col-sm-10">
+      		<div class="visible-xs-block col-xs-2 tpl-menu menu-xs">
+      			
+      		</div>
+      		<div class="col-xs-10">
       			<div class="row">
       				<div class="col-xs-6 col-sm-3">
       					<img class="pics-current" data-id="1" src="images/01.jpg">
       				</div>
       				<div class="col-xs-6 col-sm-9">
       					<div class="row tpl-thumbnail">
-      						<div class="pics-thumbnail">
-      							<div class="pics-container col-xs-offset-1 col-xs-2 col-sm-offset-1 col-sm-1 spec-margin">
-      								<div class="pics-inner">
-      									<img class="pics-img" src="images/02.jpg">
-      								</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/03.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/04.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/05.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/06.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-offset-1 col-xs-2 col-sm-offset-0 col-sm-1 spec-margin">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/07.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/08.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/09.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/10.jpg">
-	      							</div>
-	      						</div>
-	      						<div class="pics-container col-xs-2 col-sm-1">
-	      							<div class="pics-inner">
-	      								<img class="pics-img" src="images/10.jpg">
-	      							</div>
-	      						</div>
-      						</div><!-- /.pics-thumbnail -->
-      						<div class="pics-name p-first">First</div>
-      						<div class="pics-name p-last">Last</div>
+      						
       					</div>
+      					<div class="pics-name p-first">First</div>
+      					<div class="pics-name p-last">Last</div>
       				</div>
       			</div><!-- /.row right big first row -->
       			<div class="row tpl-info">
-      				<div class="col-xs-11">
-      					<h1 class="ctext-title">Julisna Latain</h1>
-			      		<p class="ctext-content">Megan Denise Fox was born May 16, 1986 in Rockwood, Tennessee. She has one older sister. Megan began her training in drama and dance at the age of 5 and, at the age of 10, moved to Florida where she continued her training and finished school. She now lives in Los Angeles, California. Megan began acting and modeling at the age of 13 after winning several awards at the 1999 American Modeling and Talent Convention in Hilton Head, South Carolina. Megan made her film debut as Brianna Wallace in the Mary-Kate Olsen and Ashley Olsen film, Holiday in the Sun (2001) (V). Her best known role is as Sam Witwicky\'s love interest Mikaela Banes in the first two installments of the Transformers series: Transformers (2007) and Transformers: Revenge of the Fallen (2009).'
-								</p>
-      				</div>
+      				
 		      	</div>
       		</div><!-- /.col-sm-10 -->
       	</div><!-- /.row -->
       </div><!-- /.container-fluid -->
       
       <footer class="container-fluid bg-bottom text-center">
-      	<h2>I am the bottom of this page <a href="#theTop">Back to top</a></h2> 
+      	<h2>I am the bottom of this page</h2> 
       </footer>
     </div><!-- /.main-container -->
     
     <!-- in file protocol copy tpls from the files -->
     <script id="tpl-menu" type="text/x-handlebars-template">
     	<ul class="list-group menu-container">
+    		<li class="list-group-item menu-top text-center"><span class="glyphicon glyphicon-chevron-right"></span></li>
 			  {{#each data}}
 			  <li class="list-group-item menu-item menu-id-{{id}}" data-id="{{id}}">{{firstName}} {{lastName}}</li>
 			  {{/each}}
@@ -145,8 +92,11 @@
 				{{else}}
 				<div class="pics-container col-xs-2 col-sm-1">
 				{{/if}}
-			
+					{{#if ten}}
+					<div class="pics-inner ten pics-id-{{id}}" data-id="{{id}}">
+					{{else}}
 					<div class="pics-inner pics-id-{{id}}" data-id="{{id}}">
+					{{/if}}
 						<img class="pics-img" data-id="{{id}}" src="{{picture}}">
 					</div>
 				</div>
